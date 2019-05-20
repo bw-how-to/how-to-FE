@@ -20,6 +20,7 @@ export default class SignUp extends React.Component {
                 [e.target.name]: e.target.value
             }
         })
+        console.log(this.state)
     }
 
     signUp = (e) => {
@@ -65,8 +66,8 @@ export default class SignUp extends React.Component {
                         value={this.state.confirmPassword}
                         required
                     />
-                    <select name='type'>
-                        <option selected='true' disabled value=''>-</option>
+                    <select name='type' defaultValue={''} onChange={this.handleChanges}>
+                        <option disabled value=''>-</option>
                         <option value='creator'>Creator</option>
                         <option value='viewer'>Viewer</option>
                     </select>
