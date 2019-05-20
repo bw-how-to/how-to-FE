@@ -11,29 +11,29 @@ class App extends React.Component {
     loggedIn: false,
   }
 
-  handleLogin = (props) => {
-    console.log('logged in!', props)
-    axios
-    .post('https://bw-how-to.herokuapp.com/login', props)
-    .then(res => {
-        localStorage.setItem('token', res.data.payload)
-    })
-    .catch(err => {
-        console.log(err)
-    })
-  }
+  // handleLogin = (props) => {
+  //   console.log('logged in!', props)
+  //   axios
+  //   .post('https://bw-how-to.herokuapp.com/login', props)
+  //   .then(res => {
+  //       localStorage.setItem('token', res.data.payload)
+  //   })
+  //   .catch(err => {
+  //       console.log(err)
+  //   })
+  // }
 
-  handleSignUp = (props) => {
-    console.log('signed up!', props)
-    axios
-    .post('https://bw-how-to.herokuapp.com/signup', props)
-    .then(res => {
-        localStorage.setItem('token', res.data.payload)
-    })
-    .catch(err => {
-        console.log(err)
-    })
-  }
+  // handleSignUp = (props) => {
+  //   console.log('signed up!', props)
+  //   axios
+  //   .post('https://bw-how-to.herokuapp.com/signup', props)
+  //   .then(res => {
+  //       localStorage.setItem('token', res.data.payload)
+  //   })
+  //   .catch(err => {
+  //       console.log(err)
+  //   })
+  // }
 
 
   render() {
