@@ -2,12 +2,8 @@ import React from 'react';
 import Guide from './Guide'
 
 export default class Guides extends React.Component {
-    constructor(props) {
-        super(props)
-    }
 
     render() {
-        console.log('guides', this.props)
         // if (this.props.guideSelected === false) {
             return (
                 <div>

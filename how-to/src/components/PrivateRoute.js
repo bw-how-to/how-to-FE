@@ -3,9 +3,6 @@ import { Redirect } from 'react-router-dom';
 
 const PrivateRoute =  Guides =>
   class extends React.Component {
-    constructor(props) {
-      super(props);
-    }
 
     render() {
       return this.props.loggedIn === false ? (

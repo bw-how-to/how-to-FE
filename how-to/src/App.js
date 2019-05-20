@@ -35,7 +35,6 @@ class App extends React.Component {
   }
 
   postSelected = props => {
-    console.log(';lkasjdf;lkajsdf')
     this.setState({ guideSelected: props})
   }
 
