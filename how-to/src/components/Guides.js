@@ -28,11 +28,11 @@ export default class Guides extends React.Component {
         return (
             <div>
                 <h3>
-                    guides
+                    Guides:
                 </h3>
                 {this.state.guides.map(guide => (
-                    <div>
-                        <p key={guide.id}>{guide.username}</p>
+                    <div key={guide.id}>
+                        <p>{guide.username}</p>
                     </div>
                 ))}
             </div>

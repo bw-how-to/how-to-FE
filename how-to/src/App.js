@@ -1,8 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link, withRouter } from 'react-router-dom'
 import SignUp from './components/SignUp'
 import Login from './components/Login'
 import Guides from './components/Guides'
+import PrivateRoute from './components/PrivateRoute'
 import axios from 'axios'
 import './App.css';
 
@@ -19,7 +20,8 @@ class App extends React.Component {
     .post('https://bw-how-to.herokuapp.com/login', props)
     .then(res => {
         localStorage.setItem('jwt', res.data.token)
-        this.props.history.push('/guides')
+        this.setState({loggedIn: true})
+        this.props.history.push('/')
     })
     .catch(err => {
         console.log(err)
@@ -31,7 +33,8 @@ class App extends React.Component {
     .post('https://bw-how-to.herokuapp.com/register', props)
     .then(res => {
         localStorage.setItem('jwt', res.data.token)
-        props.history.push('/guides')
+        this.setState({loggedIn: true})
+        this.props.history.push('/')
     })
     .catch(err => {
         console.log(err)
@@ -62,16 +65,11 @@ class App extends React.Component {
             />
           )}
           />
-          <Route path='/guides'
-          render={props => (
-            <Guides {...props}
-            />
-          )}
-          />
+          <PrivateRoute exact path="/" component={Guides} />
         </div>
       </Router>
     );
   }
 }
 
-export default App;
+export default withRouter(App);
