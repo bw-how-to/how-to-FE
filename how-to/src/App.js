@@ -1,20 +1,24 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, withRouter } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
 import SignUp from './components/SignUp'
 import Login from './components/Login'
 import Guides from './components/Guides'
 import PrivateRoute from './components/PrivateRoute'
 import Post from './components/Post'
+import NewGuide from './components/NewGuide'
 import axios from 'axios'
 import './App.css';
+import createHistory from 'history/createBrowserHistory';
 
+const history = createHistory(); 
 const Auth = PrivateRoute(Guides);
 
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      loggedIn: true,
+      loggedIn: localStorage.getItem("jwt") === null ? false : true,
       guides: [],
       guideSelected: false,
     }
@@ -59,8 +63,9 @@ class App extends React.Component {
     .post('https://bw-how-to.herokuapp.com/login', props)
     .then(res => {
         localStorage.setItem('jwt', res.data.token)
-        // this.getGuides()
+        this.getGuides()
         this.props.history.push('/guides')
+        
         this.setState({loggedIn: true})
     })
     .catch(err => {
@@ -81,15 +86,34 @@ class App extends React.Component {
     })
   }
 
+  handleNewGuide = (props) => {
+    const token = localStorage.getItem('jwt')
+    const requestConfig = {
+        headers: {
+             authorization: token
+        }
+    }
+
+    if (token) {
+      console.log(props)
+      axios
+      .post('https://bw-how-to.herokuapp.com/guides', requestConfig, props)
+      .then(res => console.log(res))
+      .catch(err => console.log(err))
+      }
+  }
+
 
   render() {
+    console.log(this.state.guides)
     return (
-      <Router>
+      <Router history={history}>
         <div className="App">
           <h3>How To</h3>
           <div>
             <Link to="/register">Register</Link>
             <Link to="/login">Login</Link>
+            <Link to="/newguide">Create Guide</Link>
           </div>
           <Route path='/register'
           render={props => (
@@ -115,6 +139,16 @@ class App extends React.Component {
             />
           )}
           />
+
+          <Route exact path='/newguide'
+          render={props => (
+            <NewGuide {...props}
+            loggedIn={this.state.loggedIn}
+            handleNewGuide={this.handleNewGuide}
+            />
+          )}
+          />
+
           <Route exact path='/guides/:id'
           render={props => (
             <Post {...props}
