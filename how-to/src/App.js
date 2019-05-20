@@ -7,12 +7,45 @@ import PrivateRoute from './components/PrivateRoute'
 import axios from 'axios'
 import './App.css';
 
+const Auth = PrivateRoute(Guides);
+
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       loggedIn: false,
+      guides: []
+    }
   }
+
+  componentDidMount() {
+    const token = localStorage.getItem('jwt')
+    const requestConfig = {
+        headers: {
+              authorization: token
+        }
+    }
+
+    axios
+    .get('https://bw-how-to.herokuapp.com/guides', requestConfig)
+    .then(res => this.setState({guides: res.data}))
+    .catch(err => console.log(err))
+  }
+
+  getGuides = () => {
+    const token = localStorage.getItem('jwt')
+    const requestConfig = {
+        headers: {
+             authorization: token
+        }
+    }
+
+    if (token) {
+      axios
+      .get('https://bw-how-to.herokuapp.com/guides', requestConfig)
+      .then(res => this.setState({guides: res.data}))
+      .catch(err => console.log(err))
+      }
   }
 
   handleLogin = (props) => {
@@ -21,6 +54,7 @@ class App extends React.Component {
     .then(res => {
         localStorage.setItem('jwt', res.data.token)
         this.setState({loggedIn: true})
+        // this.getGuides()
         this.props.history.push('/')
     })
     .catch(err => {
@@ -65,7 +99,14 @@ class App extends React.Component {
             />
           )}
           />
-          <PrivateRoute exact path="/" component={Guides} />
+          {/* <PrivateRoute exact path="/" component={Guides} guides={this.state.guides} /> */}
+          <Route exact path='/'
+          render={props => (
+            <Auth {...props}
+            guides={this.state.guides}
+            />
+          )}
+          />
         </div>
       </Router>
     );

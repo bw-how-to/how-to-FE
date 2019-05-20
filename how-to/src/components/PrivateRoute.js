@@ -1,21 +1,25 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
+const PrivateRoute =  Guides =>
+  class extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        loggedIn: localStorage.getItem("jwt") === null ? false : true
+      };
+    }
 
-const PrivateRoute = ({component: Component, ...rest}) => {
-    return (
-        <Route
-        {...rest}
-        render={() => {
-            if (localStorage.getItem('jwt')) {
-                return <Component />;
-              } else {
-                return <Redirect to="/login" />
-            }
-        }}
+    render() {
+      return this.state.loggedIn === false ? (
+        <Redirect to='/login'
         />
-    )
-}
-
+      ) : (
+        <Guides
+            guides={this.props.guides}
+        />
+      );
+    }
+  };
 
 export default PrivateRoute;
