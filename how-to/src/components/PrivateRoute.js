@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 const PrivateRoute =  Guides =>
   class extends React.Component {
@@ -17,6 +17,8 @@ const PrivateRoute =  Guides =>
       ) : (
         <Guides
             guides={this.props.guides}
+            postSelected={this.props.postSelected}
+            guideSelected={this.props.guideSelected}
         />
       );
     }

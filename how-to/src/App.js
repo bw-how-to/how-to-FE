@@ -4,6 +4,7 @@ import SignUp from './components/SignUp'
 import Login from './components/Login'
 import Guides from './components/Guides'
 import PrivateRoute from './components/PrivateRoute'
+import Post from './components/Post'
 import axios from 'axios'
 import './App.css';
 
@@ -14,7 +15,8 @@ class App extends React.Component {
     super(props)
     this.state = {
       loggedIn: false,
-      guides: []
+      guides: [],
+      guideSelected: false,
     }
   }
 
@@ -30,6 +32,11 @@ class App extends React.Component {
     .get('https://bw-how-to.herokuapp.com/guides', requestConfig)
     .then(res => this.setState({guides: res.data}))
     .catch(err => console.log(err))
+  }
+
+  postSelected = props => {
+    console.log(';lkasjdf;lkajsdf')
+    this.setState({ guideSelected: props})
   }
 
   getGuides = () => {
@@ -55,7 +62,7 @@ class App extends React.Component {
         localStorage.setItem('jwt', res.data.token)
         this.setState({loggedIn: true})
         // this.getGuides()
-        this.props.history.push('/')
+        this.props.history.push('/guides')
     })
     .catch(err => {
         console.log(err)
@@ -68,7 +75,7 @@ class App extends React.Component {
     .then(res => {
         localStorage.setItem('jwt', res.data.token)
         this.setState({loggedIn: true})
-        this.props.history.push('/')
+        this.props.history.push('/guides')
     })
     .catch(err => {
         console.log(err)
@@ -100,10 +107,20 @@ class App extends React.Component {
           )}
           />
           {/* <PrivateRoute exact path="/" component={Guides} guides={this.state.guides} /> */}
-          <Route exact path='/'
+          <Route path='/guides'
           render={props => (
             <Auth {...props}
             guides={this.state.guides}
+            guideSelected={this.state.guideSelected}
+            postSelected={this.postSelected}
+            />
+          )}
+          />
+          <Route exact path='/guides/:id'
+          render={props => (
+            <Post {...props}
+            guides={this.state.guides}
+            id={this.state.guideSelected}
             />
           )}
           />
