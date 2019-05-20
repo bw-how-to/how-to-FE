@@ -7,4 +7,5 @@
   align-items: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  flex-wrap: wrap;
 }
