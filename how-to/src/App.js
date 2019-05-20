@@ -7,9 +7,11 @@ import axios from 'axios'
 import './App.css';
 
 class App extends React.Component {
-
-  state = {
-    loggedIn: false,
+  constructor(props) {
+    super(props)
+    this.state = {
+      loggedIn: false,
+  }
   }
 
   handleLogin = (props) => {
@@ -29,7 +31,7 @@ class App extends React.Component {
     .post('https://bw-how-to.herokuapp.com/register', props)
     .then(res => {
         localStorage.setItem('jwt', res.data.token)
-        this.props.history.push('/guides')
+        props.history.push('/guides')
     })
     .catch(err => {
         console.log(err)
