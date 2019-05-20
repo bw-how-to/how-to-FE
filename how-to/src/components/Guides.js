@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+import Guide from './Guide'
 
 export default class Guides extends React.Component {
     constructor(props) {
@@ -14,9 +14,7 @@ export default class Guides extends React.Component {
                     Guides:
                 </h3>
                 {this.props.guides.map(guide => (
-                    <div className='feedGuide' key={guide.title}>
-                        <p key={guide.title}>{guide.username}</p>
-                    </div>
+                        <Guide key={guide.title} guide={guide}/>
                 ))}
             </div>
         )
