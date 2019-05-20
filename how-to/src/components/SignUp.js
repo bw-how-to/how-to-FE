@@ -65,15 +65,11 @@ export default class SignUp extends React.Component {
                         value={this.state.confirmPassword}
                         required
                     />
-                    <input
-                        type='text'
-                        name='type'
-                        placeholder='type'
-                        autoComplete='off'
-                        onChange={this.handleChanges}
-                        value={this.state.confirmPassword}
-                        required
-                    />
+                    <select name='type'>
+                        <option selected='true' disabled value=''>-</option>
+                        <option value='creator'>Creator</option>
+                        <option value='viewer'>Viewer</option>
+                    </select>
                     <button>
                         Sign Up
                     </button>
