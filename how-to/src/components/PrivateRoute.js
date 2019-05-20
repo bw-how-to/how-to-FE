@@ -5,13 +5,10 @@ const PrivateRoute =  Guides =>
   class extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {
-        loggedIn: localStorage.getItem("jwt") === null ? false : true
-      };
     }
 
     render() {
-      return this.state.loggedIn === false ? (
+      return this.props.loggedIn === false ? (
         <Redirect to='/login'
         />
       ) : (

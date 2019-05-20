@@ -8,7 +8,7 @@ export default class Guides extends React.Component {
 
     render() {
         console.log('guides', this.props)
-        if (this.props.guideSelected === false) {
+        // if (this.props.guideSelected === false) {
             return (
                 <div>
                     <h3>
@@ -20,9 +20,9 @@ export default class Guides extends React.Component {
                     ))}
                 </div>
             )
-    }
-    else {
-        return <div></div>
-    }
+    // }
+    // else {
+    //     return <div></div>
+    // }
 }
 }

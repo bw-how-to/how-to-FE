@@ -14,7 +14,7 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      loggedIn: false,
+      loggedIn: true,
       guides: [],
       guideSelected: false,
     }
@@ -60,9 +60,9 @@ class App extends React.Component {
     .post('https://bw-how-to.herokuapp.com/login', props)
     .then(res => {
         localStorage.setItem('jwt', res.data.token)
-        this.setState({loggedIn: true})
         // this.getGuides()
         this.props.history.push('/guides')
+        this.setState({loggedIn: true})
     })
     .catch(err => {
         console.log(err)
@@ -107,7 +107,7 @@ class App extends React.Component {
           )}
           />
           {/* <PrivateRoute exact path="/" component={Guides} guides={this.state.guides} /> */}
-          <Route path='/guides'
+          <Route exact path='/guides'
           render={props => (
             <Auth {...props}
             guides={this.state.guides}
@@ -121,6 +121,7 @@ class App extends React.Component {
             <Post {...props}
             guides={this.state.guides}
             id={this.state.guideSelected}
+            loggedIn={this.state.loggedIn}
             />
           )}
           />

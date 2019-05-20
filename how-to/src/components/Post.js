@@ -1,6 +1,13 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom'
 
 export default class Post extends React.Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            loggedIn: localStorage.getItem("jwt") === null ? false : true
+          };
+    }
 
     renderPost = () => {
         const formattedPosts = []
@@ -17,22 +24,27 @@ export default class Post extends React.Component {
         const post = this.renderPost()
         console.log('inside post', this.props)
         console.log('post', post)
-        return (
-            <div>
-                <h3>Post</h3>
-                {post.map(post => (
-                    <div>
-                        <p>{post.username}</p>
-                        <div>{post.title}</div>
-                        <div>{post.description}</div>
-                        <div>{post.step_1}</div>
-                        <div>{post.step_2}</div>
-                        <div>{post.step_3}</div>
-                        <div>{post.step_4}</div>
-                        <div>{post.step_5}</div>
-                    </div>
-                ))}
-            </div>
-        )
+        if (this.state.loggedIn === true ) {
+            return (
+                <div>
+                    <h3>Post</h3>
+                    {post.map(post => (
+                        <div>
+                            <p>{post.username}</p>
+                            <div>{post.title}</div>
+                            <div>{post.description}</div>
+                            <div>{post.step_1}</div>
+                            <div>{post.step_2}</div>
+                            <div>{post.step_3}</div>
+                            <div>{post.step_4}</div>
+                            <div>{post.step_5}</div>
+                        </div>
+                    ))}
+                </div>
+            )
+        }
+        else {
+            return ('Please Log In to continue')
+        }
     }
 }
