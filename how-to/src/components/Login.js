@@ -11,7 +11,7 @@ class Login extends React.Component {
         }
     }
 
-    handleChange = (e) => {
+    handleChanges = (e) => {
         this.setState({
             credentials: {
                 ...this.state.credentials,

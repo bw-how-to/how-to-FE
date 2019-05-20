@@ -7,7 +7,8 @@ export default class SignUp extends React.Component {
             credentials: {
                 username: '',
                 password: '',
-                confirmPassword: ''
+                confirmPassword: '',
+                type: ''
             }
         }
     }
@@ -24,7 +25,7 @@ export default class SignUp extends React.Component {
     signUp = (e) => {
         e.preventDefault()
         if (this.state.credentials.password === this.state.credentials.confirmPassword) {
-            const creds = {username: this.state.credentials.username, password: this.state.credentials.password}
+            const creds = {username: this.state.credentials.username, password: this.state.credentials.password, type: this.state.credentials.type}
             this.props.handleSignUp(creds)
         }
         else {
@@ -59,6 +60,15 @@ export default class SignUp extends React.Component {
                         type='password'
                         name='confirmPassword'
                         placeholder='Confirm Password'
+                        autoComplete='off'
+                        onChange={this.handleChanges}
+                        value={this.state.confirmPassword}
+                        required
+                    />
+                    <input
+                        type='text'
+                        name='type'
+                        placeholder='type'
                         autoComplete='off'
                         onChange={this.handleChanges}
                         value={this.state.confirmPassword}

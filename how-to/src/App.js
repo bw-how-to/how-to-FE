@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import SignUp from './components/SignUp'
 import Login from './components/Login'
+import Guides from './components/Guides'
 import axios from 'axios'
 import './App.css';
 
@@ -11,29 +12,29 @@ class App extends React.Component {
     loggedIn: false,
   }
 
-  // handleLogin = (props) => {
-  //   console.log('logged in!', props)
-  //   axios
-  //   .post('https://bw-how-to.herokuapp.com/login', props)
-  //   .then(res => {
-  //       localStorage.setItem('token', res.data.payload)
-  //   })
-  //   .catch(err => {
-  //       console.log(err)
-  //   })
-  // }
+  handleLogin = (props) => {
+    axios
+    .post('https://bw-how-to.herokuapp.com/login', props)
+    .then(res => {
+        localStorage.setItem('jwt', res.data.token)
+        this.props.history.push('/guides')
+    })
+    .catch(err => {
+        console.log(err)
+    })
+  }
 
-  // handleSignUp = (props) => {
-  //   console.log('signed up!', props)
-  //   axios
-  //   .post('https://bw-how-to.herokuapp.com/signup', props)
-  //   .then(res => {
-  //       localStorage.setItem('token', res.data.payload)
-  //   })
-  //   .catch(err => {
-  //       console.log(err)
-  //   })
-  // }
+  handleSignUp = (props) => {
+    axios
+    .post('https://bw-how-to.herokuapp.com/register', props)
+    .then(res => {
+        localStorage.setItem('jwt', res.data.token)
+        this.props.history.push('/guides')
+    })
+    .catch(err => {
+        console.log(err)
+    })
+  }
 
 
   render() {
@@ -42,10 +43,10 @@ class App extends React.Component {
         <div className="App">
           <h3>How To</h3>
           <div>
-            <Link to="/signup">Sign Up</Link>
+            <Link to="/register">Register</Link>
             <Link to="/login">Login</Link>
           </div>
-          <Route path='/signup'
+          <Route path='/register'
           render={props => (
             <SignUp {...props}
             handleSignUp={this.handleSignUp}
@@ -56,6 +57,12 @@ class App extends React.Component {
           render={props => (
             <Login {...props}
             handleLogin={this.handleLogin}
+            />
+          )}
+          />
+          <Route path='/guides'
+          render={props => (
+            <Guides {...props}
             />
           )}
           />
