@@ -1,11 +1,13 @@
 import React from 'react'
 
-export default class Login extends React.Component {
-    state = {
-        credentials: {
-            username: '',
-            password: '',
-            confirmPassword: ''
+class Login extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            credentials: {
+                username: '',
+                password: '',
+            }
         }
     }
 
@@ -16,6 +18,11 @@ export default class Login extends React.Component {
                 [e.target.name]: e.target.value
             }
         })
+    }
+
+    login = (e) => {
+        e.preventDefault()
+        this.props.handleLogin()
     }
 
     render() {
@@ -48,3 +55,5 @@ export default class Login extends React.Component {
         )
     }
 }
+
+export default Login

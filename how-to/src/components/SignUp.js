@@ -1,15 +1,18 @@
 import React from 'react'
 
 export default class SignUp extends React.Component {
-    state = {
-        credentials: {
-            username: '',
-            password: '',
-            confirmPassword: ''
+    constructor(props) {
+        super(props)
+        this.state = {
+            credentials: {
+                username: '',
+                password: '',
+                confirmPassword: ''
+            }
         }
     }
 
-    handleChange = (e) => {
+    handleChanges = (e) => {
         this.setState({
             credentials: {
                 ...this.state.credentials,
@@ -18,10 +21,21 @@ export default class SignUp extends React.Component {
         })
     }
 
+    signUp = (e) => {
+        e.preventDefault()
+        if (this.state.credentials.password === this.state.credentials.confirmPassword) {
+            this.props.handleSignUp()
+        }
+        else {
+            console.log("Passwords don't match")
+        }
+        
+    }
+
     render() {
         return (
             <div className='signUpForm'>
-                <form onSubmit={this.login}>
+                <form onSubmit={this.signUp}>
                     <input
                         type='text'
                         name='username'
