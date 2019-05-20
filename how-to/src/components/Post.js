@@ -9,11 +9,15 @@ export default class Post extends React.Component {
           };
     }
 
+    componentDidMount() {
+        this.props.getGuides();
+    }
+
     renderPost = () => {
         const formattedPosts = []
             this.props.guides.forEach((post) => {
-                if (this.props.id === post.id) {
-                formattedPosts.push({username: post.username, title: post.title, description: post.description, step_1: post.step_1, step_2: post.step_2, step_3: post.step_3, step_4: post.step_4, step_5: post.step_5})
+                if (this.props.id === post.id || post.id === parseInt(this.props.match.params.id) ) {
+                formattedPosts.push({username: post.username, title: post.title, description: post.description, step_1: post.step_1, step_2: post.step_2, step_3: post.step_3, step_4: post.step_4, step_5: post.step_5, step_6: post.step_6})
                 console.log(post)
                 }
             })
@@ -38,6 +42,7 @@ export default class Post extends React.Component {
                             <div>{post.step_3}</div>
                             <div>{post.step_4}</div>
                             <div>{post.step_5}</div>
+                            <div>{post.step_6}</div>
                         </div>
                     ))}
                 </div>

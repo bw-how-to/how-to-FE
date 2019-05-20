@@ -122,6 +122,7 @@ class App extends React.Component {
             guides={this.state.guides}
             id={this.state.guideSelected}
             loggedIn={this.state.loggedIn}
+            getGuides={this.getGuides}
             />
           )}
           />
