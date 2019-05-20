@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import SignUp from './components/SignUp'
 import Login from './components/Login'
+import axios from 'axios'
 import './App.css';
 
 class App extends React.Component {
@@ -10,12 +11,28 @@ class App extends React.Component {
     loggedIn: false,
   }
 
-  handleLogin = () => {
-    console.log('logged in!')
+  handleLogin = (props) => {
+    console.log('logged in!', props)
+    axios
+    .post('https://bw-how-to.herokuapp.com/login', props)
+    .then(res => {
+        localStorage.setItem('token', res.data.payload)
+    })
+    .catch(err => {
+        console.log(err)
+    })
   }
 
-  handleSignUp = () => {
-    console.log('signed up!')
+  handleSignUp = (props) => {
+    console.log('signed up!', props)
+    axios
+    .post('https://bw-how-to.herokuapp.com/signup', props)
+    .then(res => {
+        localStorage.setItem('token', res.data.payload)
+    })
+    .catch(err => {
+        console.log(err)
+    })
   }
 
 

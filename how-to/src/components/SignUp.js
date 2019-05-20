@@ -24,7 +24,8 @@ export default class SignUp extends React.Component {
     signUp = (e) => {
         e.preventDefault()
         if (this.state.credentials.password === this.state.credentials.confirmPassword) {
-            this.props.handleSignUp()
+            const creds = {username: this.state.credentials.username, password: this.state.credentials.password}
+            this.props.handleSignUp(creds)
         }
         else {
             console.log("Passwords don't match")

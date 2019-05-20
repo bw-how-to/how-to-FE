@@ -22,7 +22,7 @@ class Login extends React.Component {
 
     login = (e) => {
         e.preventDefault()
-        this.props.handleLogin()
+        this.props.handleLogin(this.state.credentials)
     }
 
     render() {
