@@ -6,6 +6,7 @@ import Guides from './components/Guides'
 import PrivateRoute from './components/PrivateRoute'
 import PrivateRoute1 from './components/PrivateRoute1'
 import Post from './components/Post'
+import UserPosts from './components/UserPosts'
 import NewGuide from './components/NewGuide'
 import axios from 'axios'
 import './App.css';
@@ -77,6 +78,7 @@ class App extends React.Component {
     .post('https://bw-how-to.herokuapp.com/login', props)
     .then(res => {
       this.setState({loggedIn: true})
+      console.log(res)
         localStorage.setItem('jwt', res.data.token)
         // this.props.history.push('/guides')
         this.getGuides()
@@ -111,13 +113,30 @@ class App extends React.Component {
         }
     }
 
-    // if (token) {
+    if (token) {
       console.log(props, requestConfig)
       axios
       .post('https://bw-how-to.herokuapp.com/guides', props, requestConfig)
       .then(res => console.log(res))
       .catch(err => console.log(err))
-      // }
+      }
+  }
+
+  deletePost = (postid) => {
+    const token = localStorage.getItem('jwt')
+    const requestConfig = {
+        headers: {
+             authorization: token
+        }
+    }
+
+    if (token) {
+      console.log(postid, requestConfig)
+      axios
+      .delete('https://bw-how-to.herokuapp.com/guides', postid, requestConfig)
+      .then(res => console.log(res))
+      .catch(err => console.log(err))
+      }
   }
 
 
@@ -170,6 +189,17 @@ class App extends React.Component {
             loggedIn={this.state.loggedIn}
             getGuides={this.getGuides}
             />
+          )}
+          />
+
+            <Route exact path='/guides/:username'
+            render={props => (
+              <UserPosts {...props}
+              guides={this.state.guides}
+              id={this.state.guideSelected}
+              loggedIn={this.state.loggedIn}
+              getGuides={this.getGuides}
+              />
           )}
           />
         </div>

@@ -8,6 +8,11 @@ export default class Post extends React.Component {
           };
     }
 
+    handleUsernameClick = (e) => {
+        const formattedPosts = this.renderPost()
+        console.log('username clicked!', e.target.innerHTML)
+        this.props.history.push(`/guides/${e.target.innerHTML}`)
+    }
 
     renderPost = () => {
         const formattedPosts = []
@@ -21,13 +26,14 @@ export default class Post extends React.Component {
 
     render() {
         const post = this.renderPost()
+        // const userPosts = this.filterByUser()
         if (this.state.loggedIn === true ) {
             return (
                 <div>
                     <h3>Post</h3>
                     {post.map(post => (
                         <div key={post.id}>
-                            <p>{post.username}</p>
+                            <div onClick={this.handleUsernameClick}>{post.username}</div>
                             <div>{post.title}</div>
                             <div>{post.description}</div>
                             <div>{post.step_1}</div>
