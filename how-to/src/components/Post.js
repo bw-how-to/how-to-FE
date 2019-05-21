@@ -19,10 +19,16 @@ export default class Post extends React.Component {
         const formattedPosts = []
             this.props.guides.forEach((post) => {
                 if (this.props.id === post.id || post.id === parseInt(this.props.match.params.id) ) {
-                formattedPosts.push({username: post.username, title: post.title, description: post.description, step_1: post.step_1, step_2: post.step_2, step_3: post.step_3, step_4: post.step_4, step_5: post.step_5, step_6: post.step_6, id: post.id})
+                formattedPosts.push({username: post.username, title: post.title, description: post.description, step_1: post.step_1, step_2: post.step_2, step_3: post.step_3, step_4: post.step_4, step_5: post.step_5, post_id: post.id})
                 }
             })
         return formattedPosts
+    }
+
+    editPost = () => {
+        const post = this.renderPost()
+        this.props.editPost(post[0])
+        this.props.history.push('/editguide')
     }
 
     deletePost = () => {
@@ -66,7 +72,10 @@ export default class Post extends React.Component {
                             <div>{post.step_5}</div>
                             <div>{post.step_6}</div>
                             {this.props.user_type === 'creator' && this.props.username === post.username ? (
+                                <div>
+                                    <button onClick={this.editPost}>Edit</button>
                                     <button onClick={this.deletePost}>Delete</button>
+                                </div>
                                 ) : (
                                     'Viewer Only'
                                 )}

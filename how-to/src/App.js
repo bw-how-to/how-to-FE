@@ -9,6 +9,7 @@ import PrivateRoute1 from './components/PrivateRoute1'
 import Post from './components/Post'
 import UserPosts from './components/UserPosts'
 import NewGuide from './components/NewGuide'
+import EditGuide from './components/EditGuide'
 import axios from 'axios'
 import './App.css';
 import createHistory from 'history/createBrowserHistory';
@@ -28,7 +29,8 @@ class App extends React.Component {
       username: localStorage.getItem('username'),
       user_id: localStorage.getItem('user_id'),
       user_type: localStorage.getItem('user_type'),
-      filteredPosts: []
+      filteredPosts: [],
+      postToEdit: {}
     }
   }
 
@@ -152,6 +154,11 @@ class App extends React.Component {
     console.log('newFilteredData', newFilteredData)
   }
 
+  editPost = (props) => {
+    console.log('ahhhhhhhhhhh', props)
+    this.setState({postToEdit: props})
+  }
+
   render() {
     console.log(this.state.guides)
     console.log(this.state)
@@ -196,6 +203,15 @@ class App extends React.Component {
           )}
           />
 
+          <Route exact path='/editguide'
+          render={props => (
+            <EditGuide {...props}
+            postToEdit={this.state.postToEdit}
+            getGuides={this.getGuides}
+            />
+          )}
+          />
+
           <Route exact path='/guides/:id'
           render={props => (
             <Post {...props}
@@ -207,6 +223,7 @@ class App extends React.Component {
             user_id={this.state.user_id}
             user_type={this.state.user_type}
             username={this.state.username}
+            editPost={this.editPost}
             />
           )}
           />

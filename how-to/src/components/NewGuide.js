@@ -83,6 +83,22 @@ class NewGuide extends React.Component {
                     onChange={this.handleChanges}
                     value={this.state.step_3}
                 />
+                Step 4:
+                <input
+                    type='text'
+                    name='step_4'
+                    placeholder='Step 4'
+                    onChange={this.handleChanges}
+                    value={this.state.step_4}
+                />
+                Step 5:
+                <input
+                    type='text'
+                    name='step_5'
+                    placeholder='Step 5'
+                    onChange={this.handleChanges}
+                    value={this.state.step_5}
+                />
                 <button type='submit'>Add Guide</button>
             </form>
         </div>
