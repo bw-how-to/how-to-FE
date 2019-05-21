@@ -11,8 +11,9 @@ class Guide extends React.Component {
     render() {
         return (
             <div onClick={this.handleClick} className='feedGuide'>
-                {this.props.guide.username}
-                {this.props.guide.title}
+                <h4>{this.props.guide.title}</h4>
+                <div className='feedDescription'>{this.props.guide.description}</div>
+                <div className='feedUsername'>By: {this.props.guide.username}</div>
             </div>
         )
     }

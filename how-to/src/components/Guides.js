@@ -1,6 +1,7 @@
 import React from 'react';
 import Guide from './Guide'
 import { withRouter } from 'react-router-dom'
+import './Guides.scss'
 
 class Guides extends React.Component {
 
@@ -13,7 +14,7 @@ class Guides extends React.Component {
     render() {
         if (this.props.fetchingData === false) {
             return (
-                <div>
+                <div className='guides'>
                     <h3>
                         Guides:
                     </h3>

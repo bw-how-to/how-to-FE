@@ -24,6 +24,7 @@ class App extends React.Component {
       guides: [],
       guideSelected: false,
       fetchingData: false,
+      username: ''
     }
   }
 
@@ -94,6 +95,7 @@ class App extends React.Component {
     axios
     .post('https://bw-how-to.herokuapp.com/register', props)
     .then(res => {
+      console.log(res)
         localStorage.setItem('jwt', res.data.token)
         this.setState({loggedIn: true})
         this.props.history.push('/guides')
@@ -147,6 +149,7 @@ class App extends React.Component {
         <div className="App">
           <h3>How To</h3>
           <div>
+          <Link to="/guides">Guides</Link>
             <Link to="/register">Register</Link>
             <Link to="/login">Login</Link>
             <Link to="/newguide">Create Guide</Link>

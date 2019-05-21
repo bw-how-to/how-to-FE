@@ -1,0 +1,24 @@
+.guides {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    .feedGuide {
+        border: 1px solid lightblue;
+        margin: 20px;
+        padding-bottom: 20px;
+        cursor: pointer;
+
+        h4 {
+            margin-bottom: 7px;
+        }
+
+        .feedDescription {
+            margin-bottom: 20px;
+        }
+
+        .feedUsername {
+            font-size: 20px;
+        }
+    }
+}
