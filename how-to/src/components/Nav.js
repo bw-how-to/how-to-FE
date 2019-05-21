@@ -5,10 +5,21 @@ export default class Nav extends React.Component {
     render() {
         return (
             <div>
-            <Link to="/guides">Guides</Link>
-            <Link to="/register">Register</Link>
-            <Link to="/login">Login</Link>
-            <Link to="/newguide">Create Guide</Link>
+            {this.props.loggedIn === true ? (
+                <div>
+                <Link to="/guides">Guides</Link> 
+                {this.props.user_type === 'creator' ? (
+                    <Link to="/newguide">Create Guide</Link>
+                ) : (
+                    <div></div>
+                )}
+                </div>
+            ) : (
+                <div>
+                <Link to="/register">Register</Link> 
+                <Link to="/login">Login</Link>
+                </div>
+            )}
             </div>
         )
     }

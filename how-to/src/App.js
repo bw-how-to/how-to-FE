@@ -144,7 +144,10 @@ class App extends React.Component {
       <Router history={history}>
         <div className="App">
           <h3>How To</h3>
-          <Nav />
+          <Nav 
+            loggedIn={this.state.loggedIn}
+            user_type={this.state.user_type}
+          />
           <Route path='/register'
           render={props => (
             <SignUp {...props}
@@ -172,6 +175,8 @@ class App extends React.Component {
             handleNewGuide={this.handleNewGuide}
             postSelected={this.postSelected}
             getGuides={this.getGuides}
+            user_type={this.state.user_type}
+            user_id={this.state.user_id}
             />
           )}
           />
