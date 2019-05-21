@@ -1,7 +1,14 @@
 import React from 'react';
 import Guide from './Guide'
+import { withRouter } from 'react-router-dom'
 
-export default class Guides extends React.Component {
+class Guides extends React.Component {
+
+    guidesTemp = []
+    
+    componentDidMount = () => {
+        console.log('inside Guides', this.props)
+    }
 
     render() {
         // if (this.props.guideSelected === false) {
@@ -22,3 +29,5 @@ export default class Guides extends React.Component {
     // }
 }
 }
+
+export default withRouter(Guides);

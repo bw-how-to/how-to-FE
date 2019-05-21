@@ -8,9 +8,6 @@ export default class Post extends React.Component {
           };
     }
 
-    componentDidMount() {
-        this.props.getGuides();
-    }
 
     renderPost = () => {
         const formattedPosts = []

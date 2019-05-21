@@ -1,10 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, withRouter } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link, withRouter, Switch } from 'react-router-dom'
 import { Redirect } from 'react-router-dom';
+import { browserHistory } from 'react-router'
 import SignUp from './components/SignUp'
 import Login from './components/Login'
 import Guides from './components/Guides'
 import PrivateRoute from './components/PrivateRoute'
+import PrivateRoute1 from './components/PrivateRoute1'
 import Post from './components/Post'
 import NewGuide from './components/NewGuide'
 import axios from 'axios'
@@ -32,11 +34,13 @@ class App extends React.Component {
         }
     }
 
+    if (token) {
     axios
     .get('https://bw-how-to.herokuapp.com/guides', requestConfig)
     .then(res => this.setState({guides: res.data}))
     .catch(err => console.log(err))
   }
+}
 
   postSelected = props => {
     this.setState({ guideSelected: props})
@@ -53,7 +57,11 @@ class App extends React.Component {
     if (token) {
       axios
       .get('https://bw-how-to.herokuapp.com/guides', requestConfig)
-      .then(res => this.setState({guides: res.data}))
+      .then(res => {
+        this.setState({guides: res.data})
+        this.props.history.push('/guides')
+        console.log(this.state)
+      })
       .catch(err => console.log(err))
       }
   }
@@ -64,7 +72,7 @@ class App extends React.Component {
     .then(res => {
         localStorage.setItem('jwt', res.data.token)
         this.getGuides()
-        this.props.history.push('/guides')
+        // this.props.history.push('/guides')
         
         this.setState({loggedIn: true})
     })
@@ -129,22 +137,14 @@ class App extends React.Component {
             />
           )}
           />
-          {/* <PrivateRoute exact path="/" component={Guides} guides={this.state.guides} /> */}
-          <Route exact path='/guides'
-          render={props => (
-            <Auth {...props}
-            guides={this.state.guides}
-            guideSelected={this.state.guideSelected}
-            postSelected={this.postSelected}
-            />
-          )}
-          />
+           <PrivateRoute1 exact path='/guides' guides={this.state.guides} component={Guides} postSelected={this.postSelected} guideSelected={this.state.guideSelected} />        
 
           <Route exact path='/newguide'
           render={props => (
             <NewGuide {...props}
             loggedIn={this.state.loggedIn}
             handleNewGuide={this.handleNewGuide}
+            postSelected={this.postSelected}
             />
           )}
           />

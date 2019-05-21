@@ -7,14 +7,15 @@ class NewGuide extends React.Component {
         this.state = {
             NewGuide: {
                 title: '',
+                user_id: 1,
+                type: 'cooking',
                 description: '',
                 step_1: '',
                 step_2: '',
                 step_3: '',
                 step_4: '',
                 step_5: '',
-                type: 'cooking',
-                user_id: 1
+
             }
         }
     }

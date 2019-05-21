@@ -23,7 +23,9 @@ class Login extends React.Component {
 
     login = (e) => {
         e.preventDefault()
+        console.log(this.props)
         this.props.handleLogin(this.state.credentials)
+        this.props.history.push('/guides')
     }
 
     render() {
@@ -48,7 +50,7 @@ class Login extends React.Component {
                         value={this.state.password}
                         required
                     />
-                    <button>
+                    <button type='submit'>
                         Login
                     </button>
                 </form>
