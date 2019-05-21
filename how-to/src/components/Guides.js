@@ -18,10 +18,19 @@ class Guides extends React.Component {
                     <h3>
                         Guides:
                     </h3>
-                    
-                    {this.props.guides.map(guide => (
+                    {!this.props.filteredPosts.length > 0 ? (
+                        <div>
+                            {this.props.guides.map(guide => (
                             <Guide key={guide.title} guide={guide} postSelected={this.props.postSelected} />
                     ))}
+                        </div>
+                    ) : (
+                        <div>
+                            {this.props.filteredPosts.map(guide => (
+                            <Guide key={guide.title} guide={guide} postSelected={this.props.postSelected} />
+                    ))}
+                        </div>
+                    )}
                 </div>
             )
     }

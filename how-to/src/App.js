@@ -28,6 +28,7 @@ class App extends React.Component {
       username: localStorage.getItem('username'),
       user_id: localStorage.getItem('user_id'),
       user_type: localStorage.getItem('user_type'),
+      filteredPosts: []
     }
   }
 
@@ -137,16 +138,30 @@ class App extends React.Component {
       }
   }
 
+  searchPosts = (event) => {
+    console.log('event', event)
+    console.log('filtered!')
+    console.log(this.state.filteredPosts)
+    let newFilteredData = this.state.guides.filter(each => {
+      if (each.description.includes(event.target.value) || each.title.includes(event.target.value) || each.username.includes(event.target.value) ) {
+        console.log('match!')
+        return each;
+      }
+    })
+    this.setState({ filteredPosts: newFilteredData });
+    console.log('newFilteredData', newFilteredData)
+  }
+
   render() {
     console.log(this.state.guides)
     console.log(this.state)
     return (
       <Router history={history}>
         <div className="App">
-          <h3>How To</h3>
           <Nav 
             loggedIn={this.state.loggedIn}
             user_type={this.state.user_type}
+            searchPosts={this.searchPosts}
           />
           <Route path='/register'
           render={props => (
@@ -166,7 +181,7 @@ class App extends React.Component {
             />
           )}
           />
-           <PrivateRoute1 exact path='/guides' guides={this.state.guides} component={Guides} postSelected={this.postSelected} guideSelected={this.state.guideSelected} fetchingData={this.state.fetchingData} loggedIn={this.state.loggedIn} />        
+           <PrivateRoute1 exact path='/guides' guides={this.state.guides} component={Guides} postSelected={this.postSelected} guideSelected={this.state.guideSelected} fetchingData={this.state.fetchingData} loggedIn={this.state.loggedIn} filteredPosts={this.state.filteredPosts} />        
 
           <Route exact path='/newguide'
           render={props => (
