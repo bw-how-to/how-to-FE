@@ -59,11 +59,11 @@ export default class Post extends React.Component {
                 <div>
                     <h3>Post</h3>
                     {post.map(post => (
-                        <div key={post.post_id}>
+                        <div key={post.id}>
                             <div onClick={this.handleUsernameClick}>{post.username}</div>
                             <div>{post.title}</div>
                             <div>{post.description}</div>
-                            <ReactPlayer url={post.link} playing controls />
+                            <ReactPlayer url={post.link} controls />
                             <div>{post.step_1}</div>
                             <div>{post.step_2}</div>
                             <div>{post.step_3}</div>

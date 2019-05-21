@@ -70,6 +70,7 @@ class App extends React.Component {
       axios
       .get('https://bw-how-to.herokuapp.com/guides', requestConfig)
       .then(res => {
+        console.log(res)
         this.setState({guides: res.data})
         this.setState({fetchingData: false})
         this.setState({username: localStorage.getItem('username'), user_id: localStorage.getItem('user_id'), user_type: localStorage.getItem('user_type')})
@@ -157,6 +158,7 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.state.guides)
     return (
       <Router history={history}>
         <div className="App">
