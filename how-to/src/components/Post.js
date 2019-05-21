@@ -65,7 +65,7 @@ export default class Post extends React.Component {
                             <div onClick={this.handleUsernameClick}>{post.username}</div>
                             <div>{post.title}</div>
                             <div>{post.description}</div>
-                            <ReactPlayer url={post.link} playing />
+                            <ReactPlayer url={post.link} playing controls />
                             <div>{post.step_1}</div>
                             <div>{post.step_2}</div>
                             <div>{post.step_3}</div>
