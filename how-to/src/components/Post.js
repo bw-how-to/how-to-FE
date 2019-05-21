@@ -47,6 +47,7 @@ export default class Post extends React.Component {
       }
 
     render() {
+        console.log('inside post.js', this.props)
         const post = this.renderPost()
         // const userPosts = this.filterByUser()
         if (this.state.loggedIn === true ) {
@@ -64,7 +65,11 @@ export default class Post extends React.Component {
                             <div>{post.step_4}</div>
                             <div>{post.step_5}</div>
                             <div>{post.step_6}</div>
-                            <button onClick={this.deletePost}>Delete</button>
+                            {this.props.user_type === 'creator' && this.props.username === post.username ? (
+                                    <button onClick={this.deletePost}>Delete</button>
+                                ) : (
+                                    'Viewer Only'
+                                )}
                         </div>
                     ))}
                 </div>

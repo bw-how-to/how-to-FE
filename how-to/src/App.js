@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link, withRouter, Switch } from 'react-
 import SignUp from './components/SignUp'
 import Login from './components/Login'
 import Guides from './components/Guides'
+import Nav from './components/Nav'
 import PrivateRoute from './components/PrivateRoute'
 import PrivateRoute1 from './components/PrivateRoute1'
 import Post from './components/Post'
@@ -24,8 +25,9 @@ class App extends React.Component {
       guides: [],
       guideSelected: false,
       fetchingData: false,
-      username: '',
-      user_id: ''
+      username: localStorage.getItem('username'),
+      user_id: localStorage.getItem('user_id'),
+      user_type: localStorage.getItem('user_type'),
     }
   }
 
@@ -84,8 +86,9 @@ class App extends React.Component {
         // this.props.history.push('/guides')
         this.getGuides()
         this.setState({loggingIn: false})
-        this.setState({username: res.data.username})
-        this.setState({user_id: res.data.id})
+        localStorage.setItem('username', res.data.username)
+        localStorage.setItem('user_id', res.data.id)
+        localStorage.setItem('user_type', res.data.type)
 
     })
     .catch(err => {
@@ -104,6 +107,9 @@ class App extends React.Component {
         this.props.history.push('/guides')
         this.getGuides()
         this.setState({loggingIn: false})
+        localStorage.setItem('username', res.data.username)
+        localStorage.setItem('user_id', res.data.id)
+        localStorage.setItem('user_type', res.data.type)
     })
     .catch(err => {
         console.log(err)
@@ -138,12 +144,7 @@ class App extends React.Component {
       <Router history={history}>
         <div className="App">
           <h3>How To</h3>
-          <div>
-          <Link to="/guides">Guides</Link>
-            <Link to="/register">Register</Link>
-            <Link to="/login">Login</Link>
-            <Link to="/newguide">Create Guide</Link>
-          </div>
+          <Nav />
           <Route path='/register'
           render={props => (
             <SignUp {...props}
@@ -183,6 +184,9 @@ class App extends React.Component {
             loggedIn={this.state.loggedIn}
             getGuides={this.getGuides}
             getGuides={this.getGuides}
+            user_id={this.state.user_id}
+            user_type={this.state.user_type}
+            username={this.state.username}
             />
           )}
           />
