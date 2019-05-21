@@ -10,14 +10,23 @@ class Guide extends React.Component {
     }
 
     render() {
-        return (
-            <div onClick={this.handleClick} className='feedGuide'>
-                <h4>{this.props.guide.title}</h4>
-                <div className='feedDescription'>{this.props.guide.description}</div>
-                <ReactPlayer url={this.props.guide.link} light controls />
-                <div className='feedUsername'>By: {this.props.guide.username}</div>
-            </div>
-        )
+        if (this.props.guide.title) {
+            return (
+                <div onClick={this.handleClick} className='feedGuide'>
+                    <h4>{this.props.guide.title}</h4>
+                    <div className='feedDescription'>{this.props.guide.description}</div>
+                    <ReactPlayer url={this.props.guide.link} light controls />
+                    <div className='feedUsername'>By: {this.props.guide.username}</div>
+                </div>
+            )
+        }
+        else {
+            return (
+                <div>
+                    Hmmmm
+                </div>
+            )
+        }
     }
 }
 

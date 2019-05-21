@@ -28,7 +28,7 @@ class App extends React.Component {
       username: localStorage.getItem('username'),
       user_id: localStorage.getItem('user_id'),
       user_type: localStorage.getItem('user_type'),
-      filteredPosts: [],
+      filteredPosts: true,
       postToEdit: {}
     }
   }
@@ -144,7 +144,11 @@ class App extends React.Component {
       if (each.description.includes(event.target.value) || each.title.includes(event.target.value) || each.username.includes(event.target.value) ) {
         return each;
       }
+      else {
+        return false
+      }
     })
+    console.log('filtered data', newFilteredData)
     this.setState({ filteredPosts: newFilteredData });
   }
 
