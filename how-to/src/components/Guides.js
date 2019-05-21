@@ -7,9 +7,9 @@ class Guides extends React.Component {
 
     guidesTemp = []
     
-    componentDidMount = () => {
-        console.log('inside Guides', this.props)
-    }
+    // componentDidMount = () => {
+    //     console.log('inside Guides', this.props)
+    // }
 
     render() {
         if (this.props.fetchingData === false) {

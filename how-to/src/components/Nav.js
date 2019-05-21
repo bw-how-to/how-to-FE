@@ -38,7 +38,7 @@ export default class Nav extends React.Component {
                     ) : (
                         <span></span>
                     )}
-                    <Link onClick={this.logout}>Logout</Link>
+                    <Link onClick={this.logout} to={'/login'}>Logout</Link>
                 </div>
             ) : (
                 <div>

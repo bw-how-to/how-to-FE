@@ -10,8 +10,6 @@ export default class Post extends React.Component {
     }
 
     handleUsernameClick = (e) => {
-        const formattedPosts = this.renderPost()
-        console.log('username clicked!', e.target.innerHTML)
         this.props.history.push(`/guides/${e.target.innerHTML}`)
     }
 
