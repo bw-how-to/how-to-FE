@@ -10,6 +10,7 @@ class EditGuide extends React.Component {
                 title: this.props.postToEdit.title,
                 user_id: this.props.user_id,
                 type: this.props.postToEdit.type,
+                link: this.props.postToEdit.link,
                 description: this.props.postToEdit.description,
                 step_1: this.props.postToEdit.step_1,
                 step_2: this.props.postToEdit.step_2,
@@ -72,6 +73,14 @@ class EditGuide extends React.Component {
                         placeholder='Title'
                         onChange={this.handleChanges}
                         value={this.state.description}
+                    />
+                    Video URL:
+                    <input
+                        type='text'
+                        name='link'
+                        placeholder='URL'
+                        onChange={this.handleChanges}
+                        value={this.state.link}
                     />
                     Step 1:
                     <input

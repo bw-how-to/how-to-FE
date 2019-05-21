@@ -73,6 +73,7 @@ class App extends React.Component {
       .then(res => {
         this.setState({guides: res.data})
         this.setState({fetchingData: false})
+        this.setState({username: localStorage.getItem('username'), user_id: localStorage.getItem('user_id'), user_type: localStorage.getItem('user_type')})
       })
       .catch(err => console.log(err))
       }
@@ -87,11 +88,11 @@ class App extends React.Component {
       console.log(res)
         localStorage.setItem('jwt', res.data.token)
         // this.props.history.push('/guides')
-        this.getGuides()
         this.setState({loggingIn: false})
         localStorage.setItem('username', res.data.username)
         localStorage.setItem('user_id', res.data.id)
         localStorage.setItem('user_type', res.data.type)
+        this.getGuides()
 
     })
     .catch(err => {

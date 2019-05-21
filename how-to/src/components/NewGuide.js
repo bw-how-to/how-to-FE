@@ -10,6 +10,7 @@ class NewGuide extends React.Component {
                 user_id: this.props.user_id,
                 type: 'cooking',
                 description: '',
+                link: '',
                 step_1: '',
                 step_2: '',
                 step_3: '',
@@ -58,6 +59,14 @@ class NewGuide extends React.Component {
                     placeholder='Title'
                     onChange={this.handleChanges}
                     value={this.state.description}
+                />
+                Video URL:
+                <input
+                    type='text'
+                    name='link'
+                    placeholder='URL'
+                    onChange={this.handleChanges}
+                    value={this.state.link}
                 />
                 Step 1:
                 <input

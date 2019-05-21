@@ -9,6 +9,11 @@ export default class Nav extends React.Component {
         }
     }
 
+    logout = () => {
+        localStorage.clear()
+        this.props.history.push('/login')
+    }
+
     handleChanges = (e) => {
         this.setState({
             search: e.target.value
@@ -28,11 +33,12 @@ export default class Nav extends React.Component {
                         placeholder='Search'
                         onChange={this.handleChanges}
                         value={this.state.search} />
-                    {this.props.user_type === 'creator' ? (
+                    {localStorage.getItem('user_type') === 'creator' ? (
                         <Link to="/newguide">Create Guide</Link>
                     ) : (
-                        <div></div>
+                        <span></span>
                     )}
+                    <Link onClick={this.logout}>Logout</Link>
                 </div>
             ) : (
                 <div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-
+import ReactPlayer from 'react-player'
 export default class Post extends React.Component {
     constructor(props){
         super(props)
@@ -19,7 +19,7 @@ export default class Post extends React.Component {
         const formattedPosts = []
             this.props.guides.forEach((post) => {
                 if (this.props.id === post.id || post.id === parseInt(this.props.match.params.id) ) {
-                formattedPosts.push({username: post.username, title: post.title, description: post.description, step_1: post.step_1, step_2: post.step_2, step_3: post.step_3, step_4: post.step_4, step_5: post.step_5, post_id: post.id})
+                formattedPosts.push({username: post.username, title: post.title, description: post.description, step_1: post.step_1, step_2: post.step_2, step_3: post.step_3, step_4: post.step_4, step_5: post.step_5, post_id: post.id, link: post.link })
                 }
             })
         return formattedPosts
@@ -65,6 +65,7 @@ export default class Post extends React.Component {
                             <div onClick={this.handleUsernameClick}>{post.username}</div>
                             <div>{post.title}</div>
                             <div>{post.description}</div>
+                            <ReactPlayer url={post.link} playing />
                             <div>{post.step_1}</div>
                             <div>{post.step_2}</div>
                             <div>{post.step_3}</div>
