@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 export default class Post extends React.Component {
     constructor(props){
@@ -24,6 +25,27 @@ export default class Post extends React.Component {
         return formattedPosts
     }
 
+    deletePost = () => {
+        const token = localStorage.getItem('jwt')
+        const requestConfig = {
+            headers: {
+                 authorization: token
+            }
+        }
+    
+        if (token) {
+          console.log(this.props.match.params.id, requestConfig)
+          axios
+          .delete(`https://bw-how-to.herokuapp.com/guides/${this.props.match.params.id}`, requestConfig)
+          .then(res => {
+              console.log(res)
+              this.props.history.push('/guides')
+              this.props.getGuides()
+            })
+          .catch(err => console.log(err))
+          }
+      }
+
     render() {
         const post = this.renderPost()
         // const userPosts = this.filterByUser()
@@ -42,6 +64,7 @@ export default class Post extends React.Component {
                             <div>{post.step_4}</div>
                             <div>{post.step_5}</div>
                             <div>{post.step_6}</div>
+                            <button onClick={this.deletePost}>Delete</button>
                         </div>
                     ))}
                 </div>

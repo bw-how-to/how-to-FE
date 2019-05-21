@@ -24,7 +24,8 @@ class App extends React.Component {
       guides: [],
       guideSelected: false,
       fetchingData: false,
-      username: ''
+      username: '',
+      user_id: ''
     }
   }
 
@@ -67,7 +68,6 @@ class App extends React.Component {
       .then(res => {
         this.setState({guides: res.data})
         this.setState({fetchingData: false})
-        console.log(this.state)
       })
       .catch(err => console.log(err))
       }
@@ -84,6 +84,9 @@ class App extends React.Component {
         // this.props.history.push('/guides')
         this.getGuides()
         this.setState({loggingIn: false})
+        this.setState({username: res.data.username})
+        this.setState({user_id: res.data.id})
+
     })
     .catch(err => {
         console.log(err)
@@ -97,7 +100,7 @@ class App extends React.Component {
     .then(res => {
       console.log(res)
         localStorage.setItem('jwt', res.data.token)
-        this.setState({loggedIn: true})
+        this.setState({loggedIn: true, username: res.data.username, user_id: res.data.id})
         this.props.history.push('/guides')
         this.getGuides()
         this.setState({loggingIn: false})
@@ -119,31 +122,18 @@ class App extends React.Component {
       console.log(props, requestConfig)
       axios
       .post('https://bw-how-to.herokuapp.com/guides', props, requestConfig)
-      .then(res => console.log(res))
+      .then(res => {
+        console.log(res)
+        // this.props.history.push('/guides')
+        this.getGuides()
+      })
       .catch(err => console.log(err))
       }
   }
-
-  deletePost = (postid) => {
-    const token = localStorage.getItem('jwt')
-    const requestConfig = {
-        headers: {
-             authorization: token
-        }
-    }
-
-    if (token) {
-      console.log(postid, requestConfig)
-      axios
-      .delete('https://bw-how-to.herokuapp.com/guides', postid, requestConfig)
-      .then(res => console.log(res))
-      .catch(err => console.log(err))
-      }
-  }
-
 
   render() {
     console.log(this.state.guides)
+    console.log(this.state)
     return (
       <Router history={history}>
         <div className="App">
@@ -180,6 +170,7 @@ class App extends React.Component {
             loggedIn={this.state.loggedIn}
             handleNewGuide={this.handleNewGuide}
             postSelected={this.postSelected}
+            getGuides={this.getGuides}
             />
           )}
           />
@@ -190,6 +181,7 @@ class App extends React.Component {
             guides={this.state.guides}
             id={this.state.guideSelected}
             loggedIn={this.state.loggedIn}
+            getGuides={this.getGuides}
             getGuides={this.getGuides}
             />
           )}

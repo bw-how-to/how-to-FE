@@ -32,6 +32,7 @@ class NewGuide extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault()
         this.props.handleNewGuide(this.state.NewGuide)
+        this.props.history.push('/guides')
     }
 
     render() {
