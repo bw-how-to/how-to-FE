@@ -1,7 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, withRouter, Switch } from 'react-router-dom'
-import { Redirect } from 'react-router-dom';
-import { browserHistory } from 'react-router'
 import SignUp from './components/SignUp'
 import Login from './components/Login'
 import Guides from './components/Guides'
@@ -14,15 +12,17 @@ import './App.css';
 import createHistory from 'history/createBrowserHistory';
 
 const history = createHistory(); 
-const Auth = PrivateRoute(Guides);
+const Auth = PrivateRoute1(Guides);
 
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       loggedIn: localStorage.getItem("jwt") === null ? false : true,
+      loggingIn: false,
       guides: [],
       guideSelected: false,
+      fetchingData: false,
     }
   }
 
@@ -35,9 +35,13 @@ class App extends React.Component {
     }
 
     if (token) {
+      this.setState({fetchingData: true})
     axios
     .get('https://bw-how-to.herokuapp.com/guides', requestConfig)
-    .then(res => this.setState({guides: res.data}))
+    .then(res => {
+      this.setState({guides: res.data})
+      this.setState({fetchingData: false})
+    })
     .catch(err => console.log(err))
   }
 }
@@ -55,11 +59,12 @@ class App extends React.Component {
     }
 
     if (token) {
+      this.setState({fetchingData: true})
       axios
       .get('https://bw-how-to.herokuapp.com/guides', requestConfig)
       .then(res => {
         this.setState({guides: res.data})
-        this.props.history.push('/guides')
+        this.setState({fetchingData: false})
         console.log(this.state)
       })
       .catch(err => console.log(err))
@@ -67,14 +72,15 @@ class App extends React.Component {
   }
 
   handleLogin = (props) => {
+    this.setState({loggingIn: true})
     axios
     .post('https://bw-how-to.herokuapp.com/login', props)
     .then(res => {
+      this.setState({loggedIn: true})
         localStorage.setItem('jwt', res.data.token)
-        this.getGuides()
         // this.props.history.push('/guides')
-        
-        this.setState({loggedIn: true})
+        this.getGuides()
+        this.setState({loggingIn: false})
     })
     .catch(err => {
         console.log(err)
@@ -82,12 +88,15 @@ class App extends React.Component {
   }
 
   handleSignUp = (props) => {
+    this.setState({loggingIn: true})
     axios
     .post('https://bw-how-to.herokuapp.com/register', props)
     .then(res => {
         localStorage.setItem('jwt', res.data.token)
         this.setState({loggedIn: true})
         this.props.history.push('/guides')
+        this.getGuides()
+        this.setState({loggingIn: false})
     })
     .catch(err => {
         console.log(err)
@@ -102,13 +111,13 @@ class App extends React.Component {
         }
     }
 
-    if (token) {
-      console.log(props)
+    // if (token) {
+      console.log(props, requestConfig)
       axios
-      .post('https://bw-how-to.herokuapp.com/guides', requestConfig, props)
+      .post('https://bw-how-to.herokuapp.com/guides', props, requestConfig)
       .then(res => console.log(res))
       .catch(err => console.log(err))
-      }
+      // }
   }
 
 
@@ -127,6 +136,8 @@ class App extends React.Component {
           render={props => (
             <SignUp {...props}
             handleSignUp={this.handleSignUp}
+            loggedIn={this.state.loggedIn}
+            loggingIn={this.state.loggingIn}
             />
           )}
           />
@@ -134,10 +145,12 @@ class App extends React.Component {
           render={props => (
             <Login {...props}
             handleLogin={this.handleLogin}
+            loggedIn={this.state.loggedIn}
+            loggingIn={this.state.loggingIn}
             />
           )}
           />
-           <PrivateRoute1 exact path='/guides' guides={this.state.guides} component={Guides} postSelected={this.postSelected} guideSelected={this.state.guideSelected} />        
+           <PrivateRoute1 exact path='/guides' guides={this.state.guides} component={Guides} postSelected={this.postSelected} guideSelected={this.state.guideSelected} fetchingData={this.state.fetchingData} loggedIn={this.state.loggedIn} />        
 
           <Route exact path='/newguide'
           render={props => (

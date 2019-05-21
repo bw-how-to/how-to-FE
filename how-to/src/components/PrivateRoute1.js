@@ -7,10 +7,10 @@ const PrivateRoute1 = ({component: Component, ...rest}) => {
         <Route
         {...rest}
         render={() => {
-            if (localStorage.getItem('jwt')) {
-                return <Component {...rest} />;
+            if (rest.loggedIn === false) {
+                return <Redirect to={'/login'} />;
               } else {
-                return <Redirect to="/login" />
+                return <Component {...rest} />
             }
         }}
         />

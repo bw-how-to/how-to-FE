@@ -11,7 +11,7 @@ class Guides extends React.Component {
     }
 
     render() {
-        // if (this.props.guideSelected === false) {
+        if (this.props.fetchingData === false) {
             return (
                 <div>
                     <h3>
@@ -23,10 +23,10 @@ class Guides extends React.Component {
                     ))}
                 </div>
             )
-    // }
-    // else {
-    //     return <div></div>
-    // }
+    }
+    else {
+        return <div>Loading...</div>
+    }
 }
 }
 
