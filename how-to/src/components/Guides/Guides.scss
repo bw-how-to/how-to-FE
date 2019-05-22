@@ -124,6 +124,10 @@
        
 }
 
+.hidden {
+    display: none;
+}
+
 .newGuideContainer {
     margin-top: 90px;
     display: flex;
@@ -166,4 +170,8 @@
         width: 85%;
         align-self: center;
     }
+}
+
+.guideSpinner {
+    margin-top: 120px;
 }
