@@ -2,6 +2,11 @@ html {
   background-color: #60A16D;
 }
 
+.container {
+  margin: 0 auto;
+  display: flex;
+}
+
 .App {
   margin: 0 auto;
   max-width: 950px;

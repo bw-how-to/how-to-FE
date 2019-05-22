@@ -13,6 +13,31 @@
         border-radius: 10px;
         padding-bottom: 20px;
         cursor: pointer;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+
+        .video {
+            padding-bottom: 56.35%;
+            justify-content: center;
+            align-self: center;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            margin: 0 auto;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+
+            .reactVideo {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
 
         h4 {
             // color: white;
@@ -33,9 +58,8 @@
 }
 
 .guide {
-    text-align: left;
     margin-top: 90px;
-    width: 90%;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -55,16 +79,31 @@
     }
 
     .video {
+        padding-bottom: 56.35%;
         justify-content: center;
+        align-self: center;
         width: 100%;
+        height: 100%;
         display: flex;
         margin: 0 auto;
         margin-bottom: 40px;
+        position: relative;
+        overflow: hidden;
 
+        .reactVideo {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
     }
 
     .step {
-        margin: 40px 0;
+        float: left;
+        margin: 20px 20px;
+        text-align: left;
     }
        
 }

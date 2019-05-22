@@ -57,14 +57,13 @@ export default class Post extends React.Component {
         if (this.state.loggedIn === true ) {
             return (
                 <div className='guide'>
-                    <h3>Post</h3>
                     {post.map(post => (
                         <div key={post.post_id}>
                             <h3>{post.title}</h3>
                             <div className='username' onClick={this.handleUsernameClick}>Guide by: {post.username}</div>
                             <div className='description'>{post.description}</div>
                             <div className='video'>
-                                <ReactPlayer className='react-player' url={post.link} controls />
+                                <ReactPlayer className='reactVideo' url={post.link} width='100%' height='100%' controls />
                             </div>
 
                             {post.step_1 ? (
