@@ -7,9 +7,9 @@ class Guides extends React.Component {
 
     guidesTemp = []
     
-    componentDidMount = () => {
-        console.log('inside Guides', this.props)
-    }
+    // componentDidMount = () => {
+    //     console.log('inside Guides', this.props)
+    // }
 
     render() {
         if (this.props.fetchingData === false) {
@@ -18,7 +18,7 @@ class Guides extends React.Component {
                     <h3>
                         Guides:
                     </h3>
-                    {!this.props.filteredPosts.length > 0 ? (
+                    {!this.props.filteredPosts.length > 0 && this.props.filteredPosts === true ? (
                         <div>
                             {this.props.guides.map(guide => (
                             <Guide key={guide.title} guide={guide} postSelected={this.props.postSelected} />
@@ -31,13 +31,14 @@ class Guides extends React.Component {
                     ))}
                         </div>
                     )}
+
                 </div>
             )
+        }   
+        else {
+            return <div>Loading...</div>
+        }
     }
-    else {
-        return <div>Loading...</div>
-    }
-}
 }
 
 export default withRouter(Guides);

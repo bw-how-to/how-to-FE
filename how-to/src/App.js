@@ -1,10 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, withRouter, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom'
 import SignUp from './components/SignUp'
 import Login from './components/Login'
 import Guides from './components/Guides'
 import Nav from './components/Nav'
-import PrivateRoute from './components/PrivateRoute'
+// import PrivateRoute from './components/PrivateRoute'
 import PrivateRoute1 from './components/PrivateRoute1'
 import Post from './components/Post'
 import UserPosts from './components/UserPosts'
@@ -15,7 +15,6 @@ import './App.css';
 import createHistory from 'history/createBrowserHistory';
 
 const history = createHistory(); 
-const Auth = PrivateRoute1(Guides);
 
 class App extends React.Component {
   constructor(props) {
@@ -29,7 +28,7 @@ class App extends React.Component {
       username: localStorage.getItem('username'),
       user_id: localStorage.getItem('user_id'),
       user_type: localStorage.getItem('user_type'),
-      filteredPosts: [],
+      filteredPosts: true,
       postToEdit: {}
     }
   }
@@ -71,6 +70,7 @@ class App extends React.Component {
       axios
       .get('https://bw-how-to.herokuapp.com/guides', requestConfig)
       .then(res => {
+        console.log(res)
         this.setState({guides: res.data})
         this.setState({fetchingData: false})
         this.setState({username: localStorage.getItem('username'), user_id: localStorage.getItem('user_id'), user_type: localStorage.getItem('user_type')})
@@ -129,7 +129,6 @@ class App extends React.Component {
     }
 
     if (token) {
-      console.log(props, requestConfig)
       axios
       .post('https://bw-how-to.herokuapp.com/guides', props, requestConfig)
       .then(res => {
@@ -142,27 +141,23 @@ class App extends React.Component {
   }
 
   searchPosts = (event) => {
-    console.log('event', event)
-    console.log('filtered!')
-    console.log(this.state.filteredPosts)
     let newFilteredData = this.state.guides.filter(each => {
       if (each.description.includes(event.target.value) || each.title.includes(event.target.value) || each.username.includes(event.target.value) ) {
-        console.log('match!')
         return each;
       }
+      else {
+        return false
+      }
     })
+    console.log('filtered data', newFilteredData)
     this.setState({ filteredPosts: newFilteredData });
-    console.log('newFilteredData', newFilteredData)
   }
 
   editPost = (props) => {
-    console.log('ahhhhhhhhhhh', props)
     this.setState({postToEdit: props})
   }
 
   render() {
-    console.log(this.state.guides)
-    console.log(this.state)
     return (
       <Router history={history}>
         <div className="App">
@@ -219,7 +214,6 @@ class App extends React.Component {
             guides={this.state.guides}
             id={this.state.guideSelected}
             loggedIn={this.state.loggedIn}
-            getGuides={this.getGuides}
             getGuides={this.getGuides}
             user_id={this.state.user_id}
             user_type={this.state.user_type}
