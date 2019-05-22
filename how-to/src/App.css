@@ -1,4 +1,15 @@
+html {
+  background-color: #60A16D;
+}
+
+.container {
+  margin: 0 auto;
+  display: flex;
+}
+
 .App {
+  margin: 0 auto;
+  max-width: 950px;
   background-color: #60A16D;
   text-align: center;
   min-height: 100vh;
@@ -7,4 +18,5 @@
   align-items: center;
   font-size: calc(10px + 2vmin);
   flex-wrap: wrap;
+  color: white;
 }

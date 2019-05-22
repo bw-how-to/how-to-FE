@@ -23,7 +23,6 @@ export default class UserPosts extends React.Component {
         if (this.state.loggedIn === true ) {
             return (
                 <div>
-                    {/* <h3>Post</h3> */}
                     {userPosts.map(post => (
                         <div key={post.id}>
                             <p>{post.username}</p>

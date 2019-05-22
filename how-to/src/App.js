@@ -159,83 +159,85 @@ class App extends React.Component {
   render() {
     return (
       <Router history={history}>
-        <div className="App">
-          <Route exact path='/'
-          render={() => (
-            <Redirect to='/guides' />
-          )} />
-          <Nav 
-            loggedIn={this.state.loggedIn}
-            user_type={this.state.user_type}
-            searchPosts={this.searchPosts}
-          />
-          <Route path='/register'
-          render={props => (
-            <SignUp {...props}
-            handleSignUp={this.handleSignUp}
-            loggedIn={this.state.loggedIn}
-            loggingIn={this.state.loggingIn}
+        <div className='container'>
+          <div className="App">
+            <Route exact path='/'
+            render={() => (
+              <Redirect to='/guides' />
+            )} />
+            <Nav 
+              loggedIn={this.state.loggedIn}
+              user_type={this.state.user_type}
+              searchPosts={this.searchPosts}
             />
-          )}
-          />
-          <Route path='/login'
-          render={props => (
-            <Login {...props}
-            handleLogin={this.handleLogin}
-            loggedIn={this.state.loggedIn}
-            loggingIn={this.state.loggingIn}
+            <Route path='/register'
+            render={props => (
+              <SignUp {...props}
+              handleSignUp={this.handleSignUp}
+              loggedIn={this.state.loggedIn}
+              loggingIn={this.state.loggingIn}
+              />
+            )}
             />
-          )}
-          />
-          <PrivateRoute1 exact path='/guides' guides={this.state.guides} component={Guides} postSelected={this.postSelected} guideSelected={this.state.guideSelected} fetchingData={this.state.fetchingData} loggedIn={this.state.loggedIn} filteredPosts={this.state.filteredPosts} />        
+            <Route path='/login'
+            render={props => (
+              <Login {...props}
+              handleLogin={this.handleLogin}
+              loggedIn={this.state.loggedIn}
+              loggingIn={this.state.loggingIn}
+              />
+            )}
+            />
+            <PrivateRoute1 exact path='/guides' guides={this.state.guides} component={Guides} postSelected={this.postSelected} guideSelected={this.state.guideSelected} fetchingData={this.state.fetchingData} loggedIn={this.state.loggedIn} filteredPosts={this.state.filteredPosts} />        
 
-          <Route exact path='/newguide'
-          render={props => (
-            <NewGuide {...props}
-            loggedIn={this.state.loggedIn}
-            handleNewGuide={this.handleNewGuide}
-            postSelected={this.postSelected}
-            getGuides={this.getGuides}
-            user_type={this.state.user_type}
-            user_id={this.state.user_id}
+            <Route exact path='/newguide'
+            render={props => (
+              <NewGuide {...props}
+              loggedIn={this.state.loggedIn}
+              handleNewGuide={this.handleNewGuide}
+              postSelected={this.postSelected}
+              getGuides={this.getGuides}
+              user_type={this.state.user_type}
+              user_id={this.state.user_id}
+              />
+            )}
             />
-          )}
-          />
 
-          <Route exact path='/editguide'
-          render={props => (
-            <EditGuide {...props}
-            postToEdit={this.state.postToEdit}
-            getGuides={this.getGuides}
+            <Route exact path='/editguide'
+            render={props => (
+              <EditGuide {...props}
+              postToEdit={this.state.postToEdit}
+              getGuides={this.getGuides}
+              />
+            )}
             />
-          )}
-          />
 
-          <Route exact path='/guides/:id'
-          render={props => (
-            <Post {...props}
-            guides={this.state.guides}
-            id={this.state.guideSelected}
-            loggedIn={this.state.loggedIn}
-            getGuides={this.getGuides}
-            user_id={this.state.user_id}
-            user_type={this.state.user_type}
-            username={this.state.username}
-            editPost={this.editPost}
+            <Route exact path='/guides/:id'
+            render={props => (
+              <Post {...props}
+              guides={this.state.guides}
+              id={this.state.guideSelected}
+              loggedIn={this.state.loggedIn}
+              getGuides={this.getGuides}
+              user_id={this.state.user_id}
+              user_type={this.state.user_type}
+              username={this.state.username}
+              editPost={this.editPost}
+              />
+            )}
             />
-          )}
-          />
 
-          <Route exact path='/guides/:username'
-          render={props => (
-            <UserPosts {...props}
-            guides={this.state.guides}
-            id={this.state.guideSelected}
-            loggedIn={this.state.loggedIn}
-            getGuides={this.getGuides}
+            <Route exact path='/guides/:username'
+            render={props => (
+              <UserPosts {...props}
+              guides={this.state.guides}
+              id={this.state.guideSelected}
+              loggedIn={this.state.loggedIn}
+              getGuides={this.getGuides}
+              />
+            )}
             />
-          )}
-          />
+          </div>
         </div>
       </Router>
     );

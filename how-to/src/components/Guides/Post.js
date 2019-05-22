@@ -57,28 +57,52 @@ export default class Post extends React.Component {
         if (this.state.loggedIn === true ) {
             return (
                 <div className='guide'>
-                    <h3>Post</h3>
                     {post.map(post => (
                         <div key={post.post_id}>
-                            <div onClick={this.handleUsernameClick}>{post.username}</div>
-                            <div>{post.title}</div>
-                            <div>{post.description}</div>
+                            <h3>{post.title}</h3>
+                            <div className='username' onClick={this.handleUsernameClick}>Guide by: {post.username}</div>
+                            <div className='description'>{post.description}</div>
                             <div className='video'>
-                                <ReactPlayer className='react-player' url={post.link} controls />
+                                <ReactPlayer className='reactVideo' url={post.link} width='100%' height='100%' controls />
                             </div>
-                            <div>{post.step_1}</div>
-                            <div>{post.step_2}</div>
-                            <div>{post.step_3}</div>
-                            <div>{post.step_4}</div>
-                            <div>{post.step_5}</div>
-                            <div>{post.step_6}</div>
+
+                            {post.step_1 ? (
+                                <div className='step'><strong>Step 1:</strong> {post.step_1}</div>
+                                ) : (
+                                <span></span>
+                            )}
+
+                            {post.step_2 ? (
+                                <div className='step'><strong>Step 2:</strong> {post.step_2}</div>
+                                ) : (
+                                <span></span>
+                            )}
+
+                            {post.step_3 ? (
+                                <div className='step'><strong>Step 3:</strong> {post.step_3}</div>
+                                ) : (
+                                <span></span>
+                            )}
+
+                            {post.step_4 ? (
+                                <div className='step'><strong>Step 4:</strong> {post.step_4}</div>
+                                ) : (
+                                <span></span>
+                            )}
+
+                            {post.step_5 ? (
+                                <div className='step'><strong>Step 5:</strong> {post.step_5}</div>
+                                ) : (
+                                <span></span>
+                            )}
+
                             {this.props.user_type === 'creator' && this.props.username === post.username ? (
                                 <div>
                                     <button onClick={this.editPost}>Edit</button>
                                     <button onClick={this.deletePost}>Delete</button>
                                 </div>
                                 ) : (
-                                    'Viewer Only'
+                                    <span></span>
                                 )}
                         </div>
                     ))}

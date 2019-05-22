@@ -13,6 +13,31 @@
         border-radius: 10px;
         padding-bottom: 20px;
         cursor: pointer;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+
+        .video {
+            padding-bottom: 56.35%;
+            justify-content: center;
+            align-self: center;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            margin: 0 auto;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+
+            .reactVideo {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
 
         h4 {
             // color: white;
@@ -33,22 +58,52 @@
 }
 
 .guide {
+    margin-top: 90px;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
+
+    .description {
+        margin-bottom: 40px;
+    }
+
+    h3 {
+        margin-bottom: 0;
+    }
+    .username {
+        margin-bottom: 20px;
+        font-size: 20px;
+    }
 
     .video {
+        padding-bottom: 56.35%;
         justify-content: center;
+        align-self: center;
         width: 100%;
+        height: 100%;
         display: flex;
         margin: 0 auto;
+        margin-bottom: 40px;
         position: relative;
-        z-index: 0;
+        overflow: hidden;
 
+        .reactVideo {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+    }
+
+    .step {
+        float: left;
+        margin: 20px 20px;
+        text-align: left;
     }
        
 }
