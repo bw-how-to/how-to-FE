@@ -1,5 +1,6 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
+import './Login.scss'
 
 export default class SignUp extends React.Component {
     constructor(props) {
@@ -68,8 +69,8 @@ export default class SignUp extends React.Component {
                             value={this.state.confirmPassword}
                             required
                         />
-                        <select name='type' defaultValue={''} onChange={this.handleChanges}>
-                            <option disabled value=''>-</option>
+                        <select name='type' defaultValue={'Account Type'} onChange={this.handleChanges}>
+                            <option disabled value='Account Type'>Account Type</option>
                             <option value='creator'>Creator</option>
                             <option value='viewer'>Viewer</option>
                         </select>
