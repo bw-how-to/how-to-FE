@@ -56,7 +56,7 @@ class EditGuide extends React.Component {
             />
             ) : (
                 <div className='newGuideContainer'>
-                <h3>New Guide</h3>
+                <h3>Update Guide</h3>
                 <form onSubmit={this.handleSubmit} className='newGuideForm'>
                     Title:
                     <input
@@ -122,7 +122,7 @@ class EditGuide extends React.Component {
                         onChange={this.handleChanges}
                         value={this.state.step_5}
                     />
-                    <button type='submit'>Add Guide</button>
+                    <button type='submit'>Update Guide</button>
                 </form>
             </div>
             );
