@@ -1,6 +1,7 @@
 import React from 'react';
 import Guide from './Guide'
 import { withRouter } from 'react-router-dom'
+import Loader from 'react-loader-spinner'
 import './Guides.scss'
 
 class Guides extends React.Component {
@@ -36,7 +37,16 @@ class Guides extends React.Component {
             )
         }   
         else {
-            return <div>Loading...</div>
+            return ( 
+                <div className='guides loader'>
+                    <Loader 
+                    type="Puff"
+                    color="white"
+                    height="100"	
+                    width="100"
+                    />   
+                </div>
+            )
         }
     }
 }

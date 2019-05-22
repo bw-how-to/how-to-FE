@@ -87,7 +87,7 @@ class App extends React.Component {
       console.log(res)
         localStorage.setItem('jwt', res.data.token)
         // this.props.history.push('/guides')
-        this.setState({loggingIn: false})
+        this.setState({loggingIn: false, loginError: false})
         localStorage.setItem('username', res.data.username)
         localStorage.setItem('user_id', res.data.id)
         localStorage.setItem('user_type', res.data.type)
@@ -95,9 +95,11 @@ class App extends React.Component {
 
     })
     .catch(err => {
-        console.log(err)
+      this.setState({ loggedIn: false, loggingIn: false, loginError: true })
+      console.log(err)
     })
   }
+
 
   handleSignUp = (props) => {
     this.setState({loggingIn: true})
@@ -185,6 +187,7 @@ class App extends React.Component {
               handleLogin={this.handleLogin}
               loggedIn={this.state.loggedIn}
               loggingIn={this.state.loggingIn}
+              loginError={this.state.loginError}
               />
             )}
             />
