@@ -66,6 +66,14 @@
     align-items: center;
     justify-content: center;
 
+    button {
+        width: 30%;
+        margin: 5px; 
+        height: 40px;
+        border-radius: 25px;
+        font-size: 16px;
+    }
+
     .description {
         margin-bottom: 40px;
     }
@@ -101,9 +109,54 @@
     }
 
     .step {
+        min-width: 100%;
         float: left;
         margin: 20px 20px;
         text-align: left;
     }
        
+}
+
+.newGuideContainer {
+    margin-top: 90px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+
+    .newGuideForm {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        width: 100%;
+
+        .newStep {
+            height: 60px;
+        }
+    }
+
+    input {
+        font-size: 16px;
+        align-self: center;
+        width: 85%;
+        margin-bottom: 10px;
+    }
+
+    textarea {
+        font-size: 16px;
+        align-self: center;
+        width: 85%;
+        margin-bottom: 10px;
+        resize: vertical;
+        overflow: auto;
+        min-height: 150px;
+    }
+    
+    button {
+        font-size: 16px;
+        height: 40px;
+        width: 85%;
+        align-self: center;
+    }
 }
