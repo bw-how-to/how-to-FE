@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import ReactPlayer from 'react-player'
+import './Guides.scss'
+
 export default class Post extends React.Component {
     constructor(props){
         super(props)
@@ -38,7 +40,6 @@ export default class Post extends React.Component {
         }
     
         if (token) {
-          console.log(this.props.match.params.id, requestConfig)
           axios
           .delete(`https://bw-how-to.herokuapp.com/guides/${this.props.match.params.id}`, requestConfig)
           .then(res => {
@@ -51,19 +52,20 @@ export default class Post extends React.Component {
       }
 
     render() {
-        console.log('inside post.js', this.props)
         const post = this.renderPost()
         // const userPosts = this.filterByUser()
         if (this.state.loggedIn === true ) {
             return (
-                <div>
+                <div className='guide'>
                     <h3>Post</h3>
                     {post.map(post => (
-                        <div key={post.id}>
+                        <div key={post.post_id}>
                             <div onClick={this.handleUsernameClick}>{post.username}</div>
                             <div>{post.title}</div>
                             <div>{post.description}</div>
-                            <ReactPlayer url={post.link} controls />
+                            <div className='video'>
+                                <ReactPlayer className='react-player' url={post.link} controls />
+                            </div>
                             <div>{post.step_1}</div>
                             <div>{post.step_2}</div>
                             <div>{post.step_3}</div>
