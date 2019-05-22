@@ -1,11 +1,10 @@
 .App {
+  background-color: #60A16D;
   text-align: center;
   min-height: 100vh;
-  background-color: #282c34;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: calc(10px + 2vmin);
-  color: white;
   flex-wrap: wrap;
 }
