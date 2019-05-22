@@ -33,25 +33,38 @@
 }
 
 .guide {
+    text-align: left;
     margin-top: 90px;
-    width: 100%;
+    width: 90%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
+
+    .description {
+        margin-bottom: 40px;
+    }
+
+    h3 {
+        margin-bottom: 0;
+    }
+    .username {
+        margin-bottom: 20px;
+        font-size: 20px;
+    }
 
     .video {
         justify-content: center;
         width: 100%;
         display: flex;
         margin: 0 auto;
+        margin-bottom: 40px;
 
     }
 
     .step {
-        margin: 20px;
+        margin: 40px 0;
     }
        
 }
