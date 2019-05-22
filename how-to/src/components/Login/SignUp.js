@@ -11,7 +11,8 @@ export default class SignUp extends React.Component {
                 password: '',
                 confirmPassword: '',
                 type: ''
-            }
+            },
+            passwordsMatch: true
         }
     }
 
@@ -28,11 +29,12 @@ export default class SignUp extends React.Component {
     signUp = (e) => {
         e.preventDefault()
         if (this.state.credentials.password === this.state.credentials.confirmPassword) {
+            this.setState({ passwordsMatch: true })
             const creds = {username: this.state.credentials.username, password: this.state.credentials.password, type: this.state.credentials.type}
             this.props.handleSignUp(creds)
         }
         else {
-            console.log("Passwords don't match")
+            this.setState({passwordsMatch: false})
         }
         
     }
@@ -81,6 +83,13 @@ export default class SignUp extends React.Component {
                             'Sign Up'
                         )}
                         </button>
+
+                        {!this.state.passwordsMatch ? (
+                        <div className='loginError'>Passwords Don't Match</div>
+                        ) : (
+                        <span></span>
+                        )}
+
                     </form>
                 </div>
             )

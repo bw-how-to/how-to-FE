@@ -9,7 +9,7 @@ class Login extends React.Component {
             credentials: {
                 username: '',
                 password: '',
-            }
+            },
         }
     }
 
@@ -58,6 +58,13 @@ class Login extends React.Component {
                         'Log in'
                     )}
                     </button>
+
+                    {this.props.loginError === true ? (
+                        <div className='loginError'>Wrong Username or Password</div>
+                    ) : (
+                        <span></span>
+                    )}
+
                     </form>
                 </div>
             )
