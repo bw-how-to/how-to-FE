@@ -33,6 +33,7 @@
 }
 
 .guide {
+    margin-top: 90px;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -46,9 +47,11 @@
         width: 100%;
         display: flex;
         margin: 0 auto;
-        position: relative;
-        z-index: 0;
 
+    }
+
+    .step {
+        margin: 20px;
     }
        
 }

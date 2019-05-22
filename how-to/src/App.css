@@ -1,4 +1,10 @@
+html {
+  background-color: #60A16D;
+}
+
 .App {
+  margin: 0 auto;
+  max-width: 950px;
   background-color: #60A16D;
   text-align: center;
   min-height: 100vh;

@@ -66,19 +66,44 @@ export default class Post extends React.Component {
                             <div className='video'>
                                 <ReactPlayer className='react-player' url={post.link} controls />
                             </div>
-                            <div>{post.step_1}</div>
-                            <div>{post.step_2}</div>
-                            <div>{post.step_3}</div>
-                            <div>{post.step_4}</div>
-                            <div>{post.step_5}</div>
-                            <div>{post.step_6}</div>
+
+                            {post.step_1 ? (
+                                <div className='step'><strong>Step 1:</strong> {post.step_1}</div>
+                                ) : (
+                                <span></span>
+                            )}
+
+                            {post.step_2 ? (
+                                <div className='step'><strong>Step 2:</strong> {post.step_2}</div>
+                                ) : (
+                                <span></span>
+                            )}
+
+                            {post.step_3 ? (
+                                <div className='step'><strong>Step 3:</strong> {post.step_3}</div>
+                                ) : (
+                                <span></span>
+                            )}
+
+                            {post.step_4 ? (
+                                <div className='step'><strong>Step 4:</strong> {post.step_4}</div>
+                                ) : (
+                                <span></span>
+                            )}
+
+                            {post.step_5 ? (
+                                <div className='step'><strong>Step 5:</strong> {post.step_5}</div>
+                                ) : (
+                                <span></span>
+                            )}
+
                             {this.props.user_type === 'creator' && this.props.username === post.username ? (
                                 <div>
                                     <button onClick={this.editPost}>Edit</button>
                                     <button onClick={this.deletePost}>Delete</button>
                                 </div>
                                 ) : (
-                                    'Viewer Only'
+                                    <span></span>
                                 )}
                         </div>
                     ))}
