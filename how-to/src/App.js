@@ -1,15 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom'
-import SignUp from './components/SignUp'
-import Login from './components/Login'
-import Guides from './components/Guides'
-import Nav from './components/Nav'
+import SignUp from './components/Nav/SignUp'
+import Login from './components/Nav/Login'
+import Guides from './components/Guides/Guides'
+import Nav from './components/Nav/Nav'
 // import PrivateRoute from './components/PrivateRoute'
 import PrivateRoute1 from './components/PrivateRoute1'
-import Post from './components/Post'
-import UserPosts from './components/UserPosts'
-import NewGuide from './components/NewGuide'
-import EditGuide from './components/EditGuide'
+import Post from './components/Guides/Post'
+import UserPosts from './components/Guides/UserPosts'
+import NewGuide from './components/Guides/NewGuide'
+import EditGuide from './components/Guides/EditGuide'
 import axios from 'axios'
 import './App.css';
 import createHistory from 'history/createBrowserHistory';
@@ -184,7 +184,7 @@ class App extends React.Component {
             />
           )}
           />
-           <PrivateRoute1 exact path='/guides' guides={this.state.guides} component={Guides} postSelected={this.postSelected} guideSelected={this.state.guideSelected} fetchingData={this.state.fetchingData} loggedIn={this.state.loggedIn} filteredPosts={this.state.filteredPosts} />        
+          <PrivateRoute1 exact path='/guides' guides={this.state.guides} component={Guides} postSelected={this.postSelected} guideSelected={this.state.guideSelected} fetchingData={this.state.fetchingData} loggedIn={this.state.loggedIn} filteredPosts={this.state.filteredPosts} />        
 
           <Route exact path='/newguide'
           render={props => (
@@ -223,14 +223,14 @@ class App extends React.Component {
           )}
           />
 
-            <Route exact path='/guides/:username'
-            render={props => (
-              <UserPosts {...props}
-              guides={this.state.guides}
-              id={this.state.guideSelected}
-              loggedIn={this.state.loggedIn}
-              getGuides={this.getGuides}
-              />
+          <Route exact path='/guides/:username'
+          render={props => (
+            <UserPosts {...props}
+            guides={this.state.guides}
+            id={this.state.guideSelected}
+            loggedIn={this.state.loggedIn}
+            getGuides={this.getGuides}
+            />
           )}
           />
         </div>
