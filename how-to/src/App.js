@@ -1,10 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom'
+import { BrowserRouter as Router, Route, withRouter, Redirect } from 'react-router-dom'
 import SignUp from './components/Nav/SignUp'
 import Login from './components/Nav/Login'
 import Guides from './components/Guides/Guides'
 import Nav from './components/Nav/Nav'
-// import PrivateRoute from './components/PrivateRoute'
 import PrivateRoute1 from './components/PrivateRoute1'
 import Post from './components/Guides/Post'
 import UserPosts from './components/Guides/UserPosts'
@@ -161,6 +160,10 @@ class App extends React.Component {
     return (
       <Router history={history}>
         <div className="App">
+          <Route exact path='/'
+          render={() => (
+            <Redirect to='/guides' />
+          )} />
           <Nav 
             loggedIn={this.state.loggedIn}
             user_type={this.state.user_type}
