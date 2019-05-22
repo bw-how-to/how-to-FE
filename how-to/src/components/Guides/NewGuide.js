@@ -41,7 +41,7 @@ class NewGuide extends React.Component {
         <Redirect to='/login'
         />
       ) : (
-          <div>
+          <div className='newGuideContainer'>
             <h3>New Guide</h3>
             <form onSubmit={this.handleSubmit} className='newGuideForm'>
                 Title:
@@ -69,7 +69,8 @@ class NewGuide extends React.Component {
                     value={this.state.link}
                 />
                 Step 1:
-                <input
+                <textarea
+                    className='newStep'
                     type='text'
                     name='step_1'
                     placeholder='Step 1'
@@ -77,7 +78,8 @@ class NewGuide extends React.Component {
                     value={this.state.step_1}
                 />
                 Step 2:
-                <input
+                <textarea
+                    className='newStep'
                     type='text'
                     name='step_2'
                     placeholder='Step 2'
@@ -85,7 +87,8 @@ class NewGuide extends React.Component {
                     value={this.state.step_2}
                 />
                 Step 3:
-                <input
+                <textarea
+                    className='newStep'
                     type='text'
                     name='step_3'
                     placeholder='Step 3'
@@ -93,7 +96,8 @@ class NewGuide extends React.Component {
                     value={this.state.step_3}
                 />
                 Step 4:
-                <input
+                <textarea
+                    className='newStep'
                     type='text'
                     name='step_4'
                     placeholder='Step 4'
@@ -101,7 +105,8 @@ class NewGuide extends React.Component {
                     value={this.state.step_4}
                 />
                 Step 5:
-                <input
+                <textarea
+                    className='newStep'
                     type='text'
                     name='step_5'
                     placeholder='Step 5'

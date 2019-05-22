@@ -60,7 +60,7 @@ export default class Post extends React.Component {
                     {post.map(post => (
                         <div key={post.post_id}>
                             <h3>{post.title}</h3>
-                            <div className='username' onClick={this.handleUsernameClick}>Guide by: {post.username}</div>
+                            <div className='username' onClick={this.handleUsernameClick}>{post.username}</div>
                             <div className='description'>{post.description}</div>
                             <div className='video'>
                                 <ReactPlayer className='reactVideo' url={post.link} width='100%' height='100%' controls />
