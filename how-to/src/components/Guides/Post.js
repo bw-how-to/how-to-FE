@@ -7,9 +7,12 @@ export default class Post extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            loggedIn: localStorage.getItem("jwt") === null ? false : true
+            loggedIn: localStorage.getItem("jwt") === null ? false : true,
+            videoLoaded: false
           };
     }
+
+    
 
     handleUsernameClick = (e) => {
         this.props.history.push(`/guides/${e.target.innerHTML}`)
@@ -25,6 +28,9 @@ export default class Post extends React.Component {
         return formattedPosts
     }
 
+    videoReady = () => {
+        this.setState({videoLoaded: true})
+    }
     editPost = () => {
         const post = this.renderPost()
         this.props.editPost(post[0])
@@ -55,6 +61,7 @@ export default class Post extends React.Component {
         const post = this.renderPost()
         // const userPosts = this.filterByUser()
         if (this.state.loggedIn === true ) {
+            // if (this.state.videoLoaded === true) {
             return (
                 <div className='guide'>
                     {post.map(post => (
@@ -63,7 +70,7 @@ export default class Post extends React.Component {
                             <div className='username' onClick={this.handleUsernameClick}>{post.username}</div>
                             <div className='description'>{post.description}</div>
                             <div className='video'>
-                                <ReactPlayer className='reactVideo' url={post.link} width='100%' height='100%' controls />
+                                <ReactPlayer onReady={this.videoReady} className='reactVideo' url={post.link} width='100%' height='100%' controls />
                             </div>
 
                             {post.step_1 ? (
@@ -108,6 +115,7 @@ export default class Post extends React.Component {
                     ))}
                 </div>
             )
+                                
         }
         else {
             return ('Please Log In to continue')
