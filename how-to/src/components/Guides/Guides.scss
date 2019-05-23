@@ -78,18 +78,18 @@
     justify-content: center;
     font-family: "Montserrat", sans-serif;
 
-    .guideHeader {
-        background-image: radial-gradient(rgb(52, 85, 58), rgb(84, 141, 95));
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        border-radius: 10px;
-        padding-bottom: 10px;
-        padding-top: 10px;
-        border: 2px solid gray;
-    }
+    // .guideHeader {
+    //     background-image: radial-gradient(rgb(52, 85, 58), rgb(84, 141, 95));
+    //     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    //     border-radius: 10px;
+    //     padding-bottom: 10px;
+    //     padding-top: 10px;
+    //     border: 2px solid gray;
+    // }
 
     .steps {
-        background-color: white;
-        color: black;
+        background-color: rgb(145, 103, 103);
+        color: white;
     }
     button {
         width: 30%;
