@@ -1,5 +1,6 @@
 import React from 'react'
-import { withRouter, Redirect } from 'react-router-dom' 
+import * as reactRouterDom from 'react-router-dom'
+import  logo from '../../assets/Logo.png'
 import './Login.scss'
 
 class Login extends React.Component {
@@ -32,7 +33,12 @@ class Login extends React.Component {
         if (this.props.loggedIn === false ) {
             return (
                 <div className='signUpForm'>
-                    <form onSubmit={this.login}>
+                    <div className='logoContainer'>
+                    <img className='loginLogo' src={logo} />
+                    <h3>How-To</h3>
+                    <div className='subtitle'>Learn Anything and Everything</div>
+                    </div>
+                    <form className='form' onSubmit={this.login}>
                         <input
                             autoCapitalize="none"
                             type='text'
@@ -72,9 +78,9 @@ class Login extends React.Component {
             )
         }
         else if (this.props.loggedIn === true ){
-            return <Redirect to={'/guides'} />
+            return <reactRouterDom.Redirect to={'/guides'} />
         }
     }
 }
 
-export default withRouter(Login)
+export default reactRouterDom.withRouter(Login)
