@@ -29,14 +29,18 @@
     }
 
     .searchInput {
+        padding-left: 10px;
         width: 40px;
-        height: 30px;
+        height: 40px;
         align-self: center;
         transition: width 0.6s linear;
         font-size: 16px;
+        border-radius: 20px;
 
         &:focus {
             width: 100%;
+            outline: none;
+            border: 2px solid darkgreen;
         }
     }
     .fa-search {

@@ -143,7 +143,7 @@ class App extends React.Component {
 
   searchPosts = (event) => {
     let newFilteredData = this.state.guides.filter(each => {
-      if (each.description.includes(event.target.value) || each.title.includes(event.target.value) || each.username.includes(event.target.value) ) {
+      if (each.description.toUpperCase().includes(event.target.value.toUpperCase()) || each.title.toUpperCase().includes(event.target.value.toUpperCase()) || each.username.toUpperCase().includes(event.target.value.toUpperCase()) ) {
         return each;
       }
       else {
