@@ -45,6 +45,7 @@ export default class SignUp extends React.Component {
                 <div className='signUpForm'>
                     <form onSubmit={this.signUp}>
                         <input
+                            autocapitalize="none"
                             type='text'
                             name='username'
                             placeholder='Username'
@@ -54,6 +55,7 @@ export default class SignUp extends React.Component {
                             required
                         />
                         <input
+                            autocapitalize="none"
                             type='password'
                             name='password'
                             placeholder='Password'
@@ -63,6 +65,7 @@ export default class SignUp extends React.Component {
                             required
                         />
                         <input
+                            autocapitalize="none"
                             type='password'
                             name='confirmPassword'
                             placeholder='Confirm Password'
