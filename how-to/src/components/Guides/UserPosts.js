@@ -26,6 +26,9 @@ export default class UserPosts extends React.Component {
         if (this.state.loggedIn === true ) {
             return (
                     <div className='guides' onClick={this.handleClick}>
+                        <h3>
+                            Guides by: {this.props.match.params.username}
+                        </h3>
                         {userPosts.map(post => (
                             <Guide key={post.title} guide={post} />
                         ))}
