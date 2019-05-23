@@ -28,8 +28,18 @@
         margin: 20px;
     }
 
-    input {
+    .searchInput {
+        width: 40px;
         height: 30px;
         align-self: center;
+        transition: width 0.4s ease-in-out;
+
+        &:focus {
+            width: 100%;
+        }
+    }
+    .fa-search {
+        align-self: center;
+        cursor: pointer;
     }
 }
