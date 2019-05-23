@@ -34,7 +34,7 @@ class Login extends React.Component {
                 <div className='signUpForm'>
                     <form onSubmit={this.login}>
                         <input
-                            autocapitalize="none"
+                            autoCapitalize="none"
                             type='text'
                             name='username'
                             placeholder='Username'
@@ -44,7 +44,7 @@ class Login extends React.Component {
                             required
                         />
                         <input
-                            autocapitalize="none"
+                            autoCapitalize="none"
                             type='password'
                             name='password'
                             placeholder='Password'

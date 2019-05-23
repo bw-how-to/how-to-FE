@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route, withRouter, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Route, withRouter, Redirect } from 'react-router-dom'
 import SignUp from './components/Login/SignUp'
 import Login from './components/Login/Login'
 import Guides from './components/Guides/Guides'
@@ -11,7 +11,7 @@ import NewGuide from './components/Guides/NewGuide'
 import EditGuide from './components/Guides/EditGuide'
 import axios from 'axios'
 import './App.css';
-import { createBrowserHistory } from 'history';
+import createBrowserHistory from 'history/createBrowserHistory';
 
 const history = createBrowserHistory(); 
 
@@ -150,12 +150,17 @@ class App extends React.Component {
         return false
       }
     })
-    console.log('filtered data', newFilteredData)
     this.setState({ filteredPosts: newFilteredData });
   }
 
   editPost = (props) => {
     this.setState({postToEdit: props})
+  }
+
+  logout = () => {
+    localStorage.clear()
+    this.setState({loggedIn: false})
+    this.props.history.push('/login')
   }
 
   render() {
@@ -171,6 +176,7 @@ class App extends React.Component {
               loggedIn={this.state.loggedIn}
               user_type={this.state.user_type}
               searchPosts={this.searchPosts}
+              logout={this.logout}
             />
             <Route path='/register'
             render={props => (

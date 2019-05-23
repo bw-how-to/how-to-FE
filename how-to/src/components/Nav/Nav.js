@@ -13,6 +13,7 @@ class Nav extends React.Component {
 
     logout = () => {
         localStorage.clear()
+        this.props.logout()
         this.props.history.push('/login')
     }
 
@@ -67,7 +68,7 @@ class Nav extends React.Component {
                     ) : (
                         <span></span>
                     )}
-                    <Link onClick={this.logout} to={'/login'}><i className="fas fa-sign-out-alt fa-2x"></i></Link>
+                    <Link onClick={this.logout}><i onClick={this.logout} className="fas fa-sign-out-alt fa-2x"></i></Link>
                 </div>
             ) : (
                 <div>

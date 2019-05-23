@@ -60,7 +60,7 @@ class EditGuide extends React.Component {
                 <form onSubmit={this.handleSubmit} className='newGuideForm'>
                     Title:
                     <input
-                        autocapitalize="none"
+                        autoCapitalize="none"
                         type='text'
                         name='title'
                         placeholder='Title'
@@ -69,7 +69,7 @@ class EditGuide extends React.Component {
                     />
                     Description:
                     <input
-                        autocapitalize="none"
+                        autoCapitalize="none"
                         type='text'
                         name='description'
                         placeholder='Title'
@@ -78,7 +78,7 @@ class EditGuide extends React.Component {
                     />
                     Video URL:
                     <input
-                        autocapitalize="none"
+                        autoCapitalize="none"
                         type='text'
                         name='link'
                         placeholder='URL'
@@ -87,7 +87,7 @@ class EditGuide extends React.Component {
                     />
                     Step 1:
                     <textarea
-                        autocapitalize="none"
+                        autoCapitalize="none"
                         type='text'
                         name='step_1'
                         placeholder='Step 1'
@@ -96,7 +96,7 @@ class EditGuide extends React.Component {
                     />
                     Step 2:
                     <textarea
-                        autocapitalize="none"
+                        autoCapitalize="none"
                         type='text'
                         name='step_2'
                         placeholder='Step 2'
@@ -113,7 +113,7 @@ class EditGuide extends React.Component {
                     />
                     Step 4:
                     <textarea
-                        autocapitalize="none"
+                        autoCapitalize="none"
                         type='text'
                         name='step_4'
                         placeholder='Step 4'
@@ -122,7 +122,7 @@ class EditGuide extends React.Component {
                     />
                     Step 5:
                     <textarea
-                        autocapitalize="none"
+                        autoCapitalize="none"
                         type='text'
                         name='step_5'
                         placeholder='Step 5'

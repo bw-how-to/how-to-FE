@@ -46,7 +46,7 @@ class NewGuide extends React.Component {
             <form onSubmit={this.handleSubmit} className='newGuideForm'>
                 Title:
                 <input
-                    autocapitalize="none"
+                    autoCapitalize="none"
                     type='text'
                     name='title'
                     placeholder='Title'
@@ -55,7 +55,7 @@ class NewGuide extends React.Component {
                 />
                 Description:
                 <input
-                    autocapitalize="none"
+                    autoCapitalize="none"
                     type='text'
                     name='description'
                     placeholder='Title'
@@ -64,7 +64,7 @@ class NewGuide extends React.Component {
                 />
                 Video URL:
                 <input
-                    autocapitalize="none"
+                    autoCapitalize="none"
                     type='text'
                     name='link'
                     placeholder='URL'
@@ -73,7 +73,7 @@ class NewGuide extends React.Component {
                 />
                 Step 1:
                 <textarea
-                    autocapitalize="none"
+                    autoCapitalize="none"
                     className='newStep'
                     type='text'
                     name='step_1'
@@ -83,7 +83,7 @@ class NewGuide extends React.Component {
                 />
                 Step 2:
                 <textarea
-                    autocapitalize="none"
+                    autoCapitalize="none"
                     className='newStep'
                     type='text'
                     name='step_2'
@@ -93,7 +93,7 @@ class NewGuide extends React.Component {
                 />
                 Step 3:
                 <textarea
-                    autocapitalize="none"
+                    autoCapitalize="none"
                     className='newStep'
                     type='text'
                     name='step_3'
@@ -103,7 +103,7 @@ class NewGuide extends React.Component {
                 />
                 Step 4:
                 <textarea
-                    autocapitalize="none"
+                    autoCapitalize="none"
                     className='newStep'
                     type='text'
                     name='step_4'
@@ -113,7 +113,7 @@ class NewGuide extends React.Component {
                 />
                 Step 5:
                 <textarea
-                    autocapitalize="none"
+                    autoCapitalize="none"
                     className='newStep'
                     type='text'
                     name='step_5'

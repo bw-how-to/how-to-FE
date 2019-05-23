@@ -28,7 +28,6 @@ export default class Post extends React.Component {
     }
 
     videoReady = (e) => {
-        console.log(e)
         this.setState({videoLoaded: true})
         document.querySelector(".guide").classList.toggle('hidden')
         document.querySelector(".guideSpinner").classList.toggle('hidden')
