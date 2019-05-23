@@ -68,7 +68,7 @@ class Nav extends React.Component {
                     ) : (
                         <span></span>
                     )}
-                    <Link onClick={this.logout}><i onClick={this.logout} className="fas fa-sign-out-alt fa-2x"></i></Link>
+                    <div onClick={this.logout}><i onClick={this.logout} className="fas fa-sign-out-alt fa-2x"></i></div>
                 </div>
             ) : (
                 <div>
