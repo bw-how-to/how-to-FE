@@ -11,6 +11,7 @@
     opacity: 0.97;
     z-index: 2;
 
+
     .navBar {
         display: flex;
         justify-content: space-evenly;
@@ -43,16 +44,23 @@
             border: 2px solid darkgreen;
         }
     }
-    .fa-search {
+    .fas {
         align-self: center;
         cursor: pointer;
+
+        &:hover {
+            color: rgb(190, 190, 190);
+        }
     }
 
     div {
         align-self: center;
     }
 
-    .fas:hover {
-        color: rgb(190, 190, 190);
+    i {
+        align-self: center;
+        font-size: 40px;
+        margin: 0 20px 0 20px;
     }
+
 }

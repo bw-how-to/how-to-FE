@@ -1,5 +1,6 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
+import  logo from '../../assets/Logo.png'
 import './Login.scss'
 
 export default class SignUp extends React.Component {
@@ -43,7 +44,12 @@ export default class SignUp extends React.Component {
         if (this.props.loggedIn === false ) {
             return (
                 <div className='signUpForm'>
-                    <form onSubmit={this.signUp}>
+                    <div className='logoContainer'>
+                    <img className='loginLogo' src={logo} />
+                    <h3>How-To</h3>
+                    <div className='subtitle'>Learn Anything and Everything</div>
+                    </div>
+                    <form className='form' onSubmit={this.signUp}>
                         <input
                             autoCapitalize="none"
                             type='text'

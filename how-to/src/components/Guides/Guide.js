@@ -7,7 +7,6 @@ class Guide extends React.Component {
 
     handleClick = () => {
         this.props.history.push(`/guides/${this.props.guide.id}`)
-        // this.props.postSelected(this.props.guide.id)
     }
 
     render() {

@@ -9,6 +9,29 @@
     align-items: center;
     width: 80%;
 
+    .form {
+        width: 500px;
+    }
+
+    .logoContainer {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+
+        .loginLogo {
+            margin-top: -150px;
+            align-self: center;
+        }
+
+        h3 {
+            margin-top: -100px;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            margin-bottom: 60px;
+        }
+    }
+
     .loginError {
         color: darkred;
         font-style: italic;
@@ -19,22 +42,26 @@
         width: 90%;
         height: 30px;
         margin-bottom: 10px;
-        border-radius: 20px;
+        // border-radius: 20px;
         padding: 0 20px;
         
 
         &:focus {
             outline: none;
-            border: 2px solid darkgreen;
+            border-bottom: 2px solid darkgreen;
         }
         
     }
 
     button {
+        border: none;
+        font-size: 16px;
+        color: white;
         height: 34px;
         width: calc(90% + 40px);
         margin-bottom: 10px;
-        border-radius: 20px;
+        border-radius: 3px;
+        background-color: rgb(7, 82, 7);
 
         &:focus {
             outline: none;

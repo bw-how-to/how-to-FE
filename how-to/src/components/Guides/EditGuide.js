@@ -54,85 +54,85 @@ class EditGuide extends React.Component {
         return this.props.loggedIn === false ? (
             <Redirect to='/login'
             />
-            ) : (
-                <div className='newGuideContainer'>
-                <h3>Update Guide</h3>
-                <form onSubmit={this.handleSubmit} className='newGuideForm'>
-                    Title:
-                    <input
-                        autoCapitalize="none"
-                        type='text'
-                        name='title'
-                        placeholder='Title'
-                        onChange={this.handleChanges}
-                        value={this.state.title}
-                    />
-                    Description:
-                    <input
-                        autoCapitalize="none"
-                        type='text'
-                        name='description'
-                        placeholder='Title'
-                        onChange={this.handleChanges}
-                        value={this.state.description}
-                    />
-                    Video URL:
-                    <input
-                        autoCapitalize="none"
-                        type='text'
-                        name='link'
-                        placeholder='URL'
-                        onChange={this.handleChanges}
-                        value={this.state.link}
-                    />
-                    Step 1:
-                    <textarea
-                        autoCapitalize="none"
-                        type='text'
-                        name='step_1'
-                        placeholder='Step 1'
-                        onChange={this.handleChanges}
-                        value={this.state.step_1}
-                    />
-                    Step 2:
-                    <textarea
-                        autoCapitalize="none"
-                        type='text'
-                        name='step_2'
-                        placeholder='Step 2'
-                        onChange={this.handleChanges}
-                        value={this.state.step_2}
-                    />
-                    Step 3:
-                    <textarea
-                        type='text'
-                        name='step_3'
-                        placeholder='Step 3'
-                        onChange={this.handleChanges}
-                        value={this.state.step_3}
-                    />
-                    Step 4:
-                    <textarea
-                        autoCapitalize="none"
-                        type='text'
-                        name='step_4'
-                        placeholder='Step 4'
-                        onChange={this.handleChanges}
-                        value={this.state.step_4}
-                    />
-                    Step 5:
-                    <textarea
-                        autoCapitalize="none"
-                        type='text'
-                        name='step_5'
-                        placeholder='Step 5'
-                        onChange={this.handleChanges}
-                        value={this.state.step_5}
-                    />
-                    <button type='submit'>Update Guide</button>
-                </form>
-            </div>
-            );
+        ) : (
+            <div className='newGuideContainer'>
+            <h3>Update Guide</h3>
+            <form onSubmit={this.handleSubmit} className='newGuideForm'>
+                Title:
+                <input
+                    autoCapitalize="none"
+                    type='text'
+                    name='title'
+                    placeholder='Title'
+                    onChange={this.handleChanges}
+                    value={this.state.title}
+                />
+                Description:
+                <input
+                    autoCapitalize="none"
+                    type='text'
+                    name='description'
+                    placeholder='Title'
+                    onChange={this.handleChanges}
+                    value={this.state.description}
+                />
+                Video URL:
+                <input
+                    autoCapitalize="none"
+                    type='text'
+                    name='link'
+                    placeholder='URL'
+                    onChange={this.handleChanges}
+                    value={this.state.link}
+                />
+                Step 1:
+                <textarea
+                    autoCapitalize="none"
+                    type='text'
+                    name='step_1'
+                    placeholder='Step 1'
+                    onChange={this.handleChanges}
+                    value={this.state.step_1}
+                />
+                Step 2:
+                <textarea
+                    autoCapitalize="none"
+                    type='text'
+                    name='step_2'
+                    placeholder='Step 2'
+                    onChange={this.handleChanges}
+                    value={this.state.step_2}
+                />
+                Step 3:
+                <textarea
+                    type='text'
+                    name='step_3'
+                    placeholder='Step 3'
+                    onChange={this.handleChanges}
+                    value={this.state.step_3}
+                />
+                Step 4:
+                <textarea
+                    autoCapitalize="none"
+                    type='text'
+                    name='step_4'
+                    placeholder='Step 4'
+                    onChange={this.handleChanges}
+                    value={this.state.step_4}
+                />
+                Step 5:
+                <textarea
+                    autoCapitalize="none"
+                    type='text'
+                    name='step_5'
+                    placeholder='Step 5'
+                    onChange={this.handleChanges}
+                    value={this.state.step_5}
+                />
+                <button type='submit'>Update Guide</button>
+            </form>
+        </div>
+        );
     }
 }
 

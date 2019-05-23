@@ -6,12 +6,6 @@ import './Guides.scss'
 
 class Guides extends React.Component {
 
-    guidesTemp = []
-    
-    // componentDidMount = () => {
-    //     console.log('inside Guides', this.props)
-    // }
-
     render() {
         if (this.props.fetchingData === false) {
             return (
@@ -20,7 +14,7 @@ class Guides extends React.Component {
                         Guides:
                     </h3>
                     {!this.props.filteredPosts.length > 0 && this.props.filteredPosts === true ? (
-                        <div>
+                        <div className='feedGuideContainer'>
                             {this.props.guides.map(guide => (
                             <Guide key={guide.title} guide={guide} postSelected={this.props.postSelected} />
                     ))}
