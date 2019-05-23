@@ -39,7 +39,7 @@ export default class Nav extends React.Component {
             <div className='navContainer'> <h3 className='title'> How To </h3>
             {this.props.loggedIn === true ? (
                 <div className='navBar'>
-                    <Link to="/guides">Guides</Link>
+                    <Link to="/guides"><i className="far fa-newspaper fa-2x"></i></Link>
                     <input
                         type='text'
                         name='search'
@@ -47,11 +47,11 @@ export default class Nav extends React.Component {
                         onChange={this.handleChanges}
                         value={this.state.search} />
                     {localStorage.getItem('user_type') === 'creator' ? (
-                    <Link to="/newguide">Create Guide</Link>
+                    <Link to="/newguide"><i className="fas fa-plus fa-2x"></i></Link>
                     ) : (
                         <span></span>
                     )}
-                    <Link onClick={this.logout} to={'/login'}>Logout</Link>
+                    <Link onClick={this.logout} to={'/login'}><i className="fas fa-sign-out-alt fa-2x"></i></Link>
                 </div>
             ) : (
                 <div>
