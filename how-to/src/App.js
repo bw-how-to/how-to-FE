@@ -48,7 +48,11 @@ class App extends React.Component {
       this.setState({guides: res.data})
       this.setState({fetchingData: false})
     })
-    .catch(err => console.log(err))
+    .catch(err => {
+      console.log(err)
+      localStorage.clear()
+      this.setState({loggedIn: false})
+    })
   }
 }
 
@@ -74,7 +78,11 @@ class App extends React.Component {
         this.setState({fetchingData: false})
         this.setState({username: localStorage.getItem('username'), user_id: localStorage.getItem('user_id'), user_type: localStorage.getItem('user_type')})
       })
-      .catch(err => console.log(err))
+      .catch(err => {
+        console.log(err)
+        localStorage.clear()
+        this.setState({loggedIn: false})
+      })
       }
   }
 

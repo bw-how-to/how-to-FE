@@ -43,16 +43,16 @@
             border: 2px solid darkgreen;
         }
     }
-    .fa-search {
+    .fas {
         align-self: center;
         cursor: pointer;
+
+        &:hover {
+            color: rgb(190, 190, 190);
+        }
     }
 
     div {
         align-self: center;
-    }
-
-    .fas:hover {
-        color: rgb(190, 190, 190);
     }
 }
