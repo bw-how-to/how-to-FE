@@ -11,6 +11,7 @@
     opacity: 0.97;
     z-index: 2;
 
+
     .navBar {
         display: flex;
         justify-content: space-evenly;
@@ -55,4 +56,11 @@
     div {
         align-self: center;
     }
+
+    i {
+        align-self: center;
+        font-size: 40px;
+        margin: 0 20px 0 20px;
+    }
+
 }
