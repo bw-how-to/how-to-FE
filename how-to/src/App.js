@@ -11,9 +11,9 @@ import NewGuide from './components/Guides/NewGuide'
 import EditGuide from './components/Guides/EditGuide'
 import axios from 'axios'
 import './App.css';
-import createHistory from 'history/createBrowserHistory';
+import createBrowserHistory from 'history/createBrowserHistory';
 
-const history = createHistory(); 
+const history = createBrowserHistory(); 
 
 class App extends React.Component {
   constructor(props) {
@@ -143,19 +143,24 @@ class App extends React.Component {
 
   searchPosts = (event) => {
     let newFilteredData = this.state.guides.filter(each => {
-      if (each.description.includes(event.target.value) || each.title.includes(event.target.value) || each.username.includes(event.target.value) ) {
+      if (each.description.toUpperCase().includes(event.target.value.toUpperCase()) || each.title.toUpperCase().includes(event.target.value.toUpperCase()) || each.username.toUpperCase().includes(event.target.value.toUpperCase()) ) {
         return each;
       }
       else {
         return false
       }
     })
-    console.log('filtered data', newFilteredData)
     this.setState({ filteredPosts: newFilteredData });
   }
 
   editPost = (props) => {
     this.setState({postToEdit: props})
+  }
+
+  logout = () => {
+    localStorage.clear()
+    this.setState({loggedIn: false})
+    this.props.history.push('/login')
   }
 
   render() {
@@ -171,6 +176,7 @@ class App extends React.Component {
               loggedIn={this.state.loggedIn}
               user_type={this.state.user_type}
               searchPosts={this.searchPosts}
+              logout={this.logout}
             />
             <Route path='/register'
             render={props => (

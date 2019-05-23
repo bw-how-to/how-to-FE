@@ -1,7 +1,5 @@
 import React from 'react';
-import ReactPlayer from 'react-player'
 import Guide from './Guide'
-import Loader from 'react-loader-spinner'
 
 export default class UserPosts extends React.Component {
     constructor(props){
