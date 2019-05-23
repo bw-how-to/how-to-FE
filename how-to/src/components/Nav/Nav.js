@@ -1,8 +1,9 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import './Nav.scss'
 
-export default class Nav extends React.Component {
+class Nav extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -23,6 +24,7 @@ export default class Nav extends React.Component {
     }
 
     searchClick = () => {
+        this.props.history.push('/guides')
         document.querySelector(".fa-search").classList.toggle('hidden')
         document.querySelector(".searchInput").classList.toggle('hidden')
         document.querySelector(".searchInput").focus();
@@ -50,7 +52,7 @@ export default class Nav extends React.Component {
             <div className='navContainer'> <h3 className='title'> How To </h3>
             {this.props.loggedIn === true ? (
                 <div className='navBar'>
-                    <Link to="/guides"><i class="fas fa-tools fa-2x"></i></Link>
+                    <Link to="/guides"><i className="fas fa-tools fa-2x"></i></Link>
                     <i onClick={this.searchClick} className="fas fa-search fa-2x"></i>
                     <input
                         onBlur={this.searchBlur}
@@ -77,3 +79,5 @@ export default class Nav extends React.Component {
         )
     }
 }
+
+export default withRouter(Nav)

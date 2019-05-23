@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, withRouter, Redirect } from 'react-router-dom'
+import { Router, Route, withRouter, Redirect } from 'react-router-dom'
 import SignUp from './components/Login/SignUp'
 import Login from './components/Login/Login'
 import Guides from './components/Guides/Guides'
@@ -11,9 +11,9 @@ import NewGuide from './components/Guides/NewGuide'
 import EditGuide from './components/Guides/EditGuide'
 import axios from 'axios'
 import './App.css';
-import createHistory from 'history/createBrowserHistory';
+import { createBrowserHistory } from 'history';
 
-const history = createHistory(); 
+const history = createBrowserHistory(); 
 
 class App extends React.Component {
   constructor(props) {
