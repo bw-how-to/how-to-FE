@@ -19,6 +19,7 @@
         flex-direction: column;
         margin-bottom: 10px;
         padding-bottom: 40px;
+        border: 1px solid green;
 
         .video {
             padding-bottom: 56.35%;
@@ -58,6 +59,10 @@
             font-size: 20px;
         }
     }
+
+    .feedGuide:hover {
+        border: 1px solid rgb(0, 90, 0);
+    }
 }
 
 .loader {
@@ -89,6 +94,7 @@
         margin-bottom: 0;
     }
     .username {
+        cursor: pointer;
         margin-bottom: 20px;
         font-size: 20px;
     }
@@ -152,6 +158,11 @@
         align-self: center;
         width: 85%;
         margin-bottom: 10px;
+
+        &:focus {
+            outline: none;
+            border: 2px solid darkgreen;
+        }
     }
 
     textarea {
@@ -162,6 +173,13 @@
         resize: vertical;
         overflow: auto;
         min-height: 150px;
+
+        &:focus {
+            outline-color: darkgreen;
+            // border: 2px solid darkgreen;
+            // margin: -2px;
+            // margin-bottom: 10px;
+        }
     }
     
     button {
@@ -169,6 +187,11 @@
         height: 40px;
         width: 85%;
         align-self: center;
+
+        &:focus {
+            outline: none;
+            border: 2px solid darkgreen;
+        }
     }
 }
 

@@ -22,6 +22,12 @@
         border-radius: 20px;
         padding: 0 20px;
         
+
+        &:focus {
+            outline: none;
+            border: 2px solid darkgreen;
+        }
+        
     }
 
     button {
@@ -29,6 +35,11 @@
         width: calc(90% + 40px);
         margin-bottom: 10px;
         border-radius: 20px;
+
+        &:focus {
+            outline: none;
+            border: 2px solid darkgreen;
+        }
     }
 
     select {
@@ -41,5 +52,10 @@
         height: 34px;
         border-radius: 16px;
         font-size: 20px;
+
+        &:focus {
+            outline: none;
+            border: 2px solid darkgreen;
+        }
     }
 }

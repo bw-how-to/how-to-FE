@@ -52,9 +52,9 @@ class App extends React.Component {
   }
 }
 
-  postSelected = props => {
-    this.setState({ guideSelected: props})
-  }
+  // postSelected = props => {
+  //   this.setState({ guideSelected: props})
+  // }
 
   getGuides = () => {
     const token = localStorage.getItem('jwt')
@@ -230,7 +230,7 @@ class App extends React.Component {
             )}
             />
 
-            <Route exact path='/guides/:username'
+            <Route exact path='/guides/users/:username'
             render={props => (
               <UserPosts {...props}
               guides={this.state.guides}

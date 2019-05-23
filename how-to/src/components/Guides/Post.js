@@ -13,18 +13,8 @@ export default class Post extends React.Component {
           };
     }
 
-    // componentDidMount = () => {
-    //     document.querySelector(".guideSpinner").classList.toggle('hidden')
-    // }
-
-    componentDidUpdate = (e) => {
-        console.log('change detected', e)
-    }
-
-    
-
     handleUsernameClick = (e) => {
-        this.props.history.push(`/guides/${e.target.innerHTML}`)
+        this.props.history.push(`/guides/users/${e.target.innerHTML}`)
     }
 
     renderPost = () => {
@@ -37,11 +27,13 @@ export default class Post extends React.Component {
         return formattedPosts
     }
 
-    videoReady = () => {
+    videoReady = (e) => {
+        console.log(e)
         this.setState({videoLoaded: true})
         document.querySelector(".guide").classList.toggle('hidden')
         document.querySelector(".guideSpinner").classList.toggle('hidden')
     }
+
     editPost = () => {
         const post = this.renderPost()
         this.props.editPost(post[0])
@@ -70,9 +62,7 @@ export default class Post extends React.Component {
 
     render() {
         const post = this.renderPost()
-        // const userPosts = this.filterByUser()
         if (this.state.loggedIn === true ) {
-            // if (this.state.videoLoaded === true) {
             return (
                 <div className="guideContainer">
                     <div className='guide hidden'>
@@ -135,7 +125,7 @@ export default class Post extends React.Component {
                         /> 
                     </div>
                 </div>
-            )        
+            )      
                                 
         }
         else {

@@ -22,6 +22,17 @@ export default class Nav extends React.Component {
         this.props.searchPosts(e)
     }
 
+    searchClick = () => {
+        document.querySelector(".fa-search").classList.toggle('hidden')
+        document.querySelector(".searchInput").classList.toggle('hidden')
+        document.querySelector(".searchInput").focus();
+    }
+
+    searchBlur = () => {
+        document.querySelector(".fa-search").classList.toggle('hidden')
+        document.querySelector(".searchInput").classList.toggle('hidden')
+    }
+
 
     scrollFunction = () => {
         if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
@@ -40,7 +51,10 @@ export default class Nav extends React.Component {
             {this.props.loggedIn === true ? (
                 <div className='navBar'>
                     <Link to="/guides"><i class="fas fa-tools fa-2x"></i></Link>
+                    <i onClick={this.searchClick} className="fas fa-search fa-2x"></i>
                     <input
+                        onBlur={this.searchBlur}
+                        className='searchInput hidden'
                         type='text'
                         name='search'
                         placeholder='Search'
