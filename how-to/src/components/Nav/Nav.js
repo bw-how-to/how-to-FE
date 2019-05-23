@@ -39,7 +39,7 @@ export default class Nav extends React.Component {
             <div className='navContainer'> <h3 className='title'> How To </h3>
             {this.props.loggedIn === true ? (
                 <div className='navBar'>
-                    <Link to="/guides"><i className="far fa-newspaper fa-2x"></i></Link>
+                    <Link to="/guides"><i class="fas fa-tools fa-2x"></i></Link>
                     <input
                         type='text'
                         name='search'
