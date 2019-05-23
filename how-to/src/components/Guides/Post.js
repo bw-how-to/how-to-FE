@@ -67,13 +67,15 @@ export default class Post extends React.Component {
                     <div className='guide hidden'>
                         {post.map(post => (
                             <div key={post.post_id}>
+                                <div className='guideHeader'>
                                 <h3>{post.title}</h3>
                                 <div className='username' onClick={this.handleUsernameClick}>{post.username}</div>
                                 <div className='description'>{post.description}</div>
+                                </div>
                                 <div className='video'>
                                     <ReactPlayer onReady={this.videoReady} className='reactVideo' url={post.link} width='100%' height='100%' controls />
                                 </div>
-
+                                <div className='steps'>
                                 {post.step_1 ? (
                                     <div className='step'><strong>Step 1:</strong> {post.step_1}</div>
                                     ) : (
@@ -112,6 +114,7 @@ export default class Post extends React.Component {
                                     ) : (
                                         <span></span>
                                     )}
+                                    </div>
                             </div>
                         ))}
                     </div>

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat%7CNunito&display=swap');
+
 .guides {
     width: 70%;
     margin-top: 140px;
@@ -10,7 +12,7 @@
     .feedGuide {
         // border: 1px solid lightblue;
         width: 100%;
-        background-image: radial-gradient(rgb(63, 100, 70), #60A16D);
+        background-image: radial-gradient(rgb(52, 85, 58), rgb(84, 141, 95));
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         border-radius: 10px;
         padding-bottom: 20px;
@@ -18,9 +20,9 @@
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
-        margin-bottom: 10px;
+        margin-bottom: 25px;
         padding-bottom: 40px;
-        border: 1px solid green;
+        border: 1px solid rgb(170, 170, 170);
 
         .video {
             padding-bottom: 56.35%;
@@ -43,19 +45,22 @@
 
         h4 {
             margin-bottom: 7px;
+            font-family: "Montserrat", sans-serif;
         }
 
         .feedDescription {
             margin-bottom: 20px;
+            font-family: "Montserrat", sans-serif;
         }
 
         .feedUsername {
-            font-size: 20px;
+            font-size: 25px;
+            font-family: "Montserrat", sans-serif;
         }
     }
 
     .feedGuide:hover {
-        border: 1px solid rgb(0, 90, 0);
+        // border: 1px solid rgb(0, 90, 0);
     }
 }
 
@@ -71,7 +76,21 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-family: "Montserrat", sans-serif;
 
+    // .guideHeader {
+    //     background-image: radial-gradient(rgb(52, 85, 58), rgb(84, 141, 95));
+    //     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    //     border-radius: 10px;
+    //     padding-bottom: 10px;
+    //     padding-top: 10px;
+    //     border: 2px solid gray;
+    // }
+
+    .steps {
+        background-color: rgb(145, 103, 103);
+        color: white;
+    }
     button {
         width: 30%;
         margin: 5px; 
@@ -89,8 +108,9 @@
     }
     .username {
         cursor: pointer;
+        margin-top: 12px;
         margin-bottom: 20px;
-        font-size: 20px;
+        font-size: 29px;
     }
 
     .video {
