@@ -10,7 +10,7 @@
     width: 80%;
 
     .form {
-        width: 500px;
+        width: 75%;
     }
 
     .logoContainer {
@@ -19,12 +19,13 @@
         flex-direction: column;
 
         .loginLogo {
-            margin-top: -150px;
+            width: 250px;
+            margin-top: -100px;
             align-self: center;
         }
 
         h3 {
-            margin-top: -100px;
+            // margin-top: -100px;
             margin-bottom: 10px;
         }
         .subtitle {
