@@ -2,12 +2,16 @@
 
 .guides {
     width: 70%;
-    margin-top: 140px;
+    margin-top: 170px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
     max-width: 700px;
+
+    @media (max-width: 500px) {
+        width: 99%;
+    }
 
     .feedGuide {
         // border: 1px solid lightblue;
@@ -69,7 +73,7 @@
 }
 
 .guide {
-    margin-top: 140px;
+    margin-top: 170px;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
