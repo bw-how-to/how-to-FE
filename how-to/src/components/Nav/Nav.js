@@ -38,6 +38,10 @@ class Nav extends React.Component {
     searchBlur = () => {
         document.querySelector(".fa-search").classList.toggle('hidden')
         document.querySelector(".searchInput").classList.toggle('hidden')
+        document.querySelectorAll(".fas")[0].style.margin = "0 15px 0 15px";
+        document.querySelectorAll(".fas")[1].style.margin = "0 15px 0 15px";
+        document.querySelectorAll(".fas")[2].style.margin = "0 15px 0 15px";
+        document.querySelectorAll(".fas")[3].style.margin = "0 15px 0 15px";
     }
 
 

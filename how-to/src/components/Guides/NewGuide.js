@@ -31,6 +31,7 @@ class NewGuide extends React.Component {
     }
 
     handleSubmit = (e) => {
+        console.log(this.state.NewGuide)
         e.preventDefault()
         this.props.handleNewGuide(this.state.NewGuide)
         this.props.history.push('/guides')
@@ -62,6 +63,16 @@ class NewGuide extends React.Component {
                     onChange={this.handleChanges}
                     value={this.state.description}
                 />
+                Category: 
+                <select name='type' required defaultValue={'Category'} onChange={this.handleChanges}>
+                    <option disabled value='Category'>Category</option>
+                    <option value='cooking'>Cooking</option>
+                    <option value='Computers'>Computers</option>
+                    <option value='cars'>Cars</option>
+                    <option value='gaming'>Gaming</option>
+                    <option value='handy-work'>Handy-Work</option>
+                    <option value='Gardening'>Gardening</option>
+                </select>
                 Video URL:
                 <input
                     autoCapitalize="none"
