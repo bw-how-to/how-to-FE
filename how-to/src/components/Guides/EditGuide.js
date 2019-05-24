@@ -42,7 +42,7 @@ class EditGuide extends React.Component {
           .put(`https://bw-how-to.herokuapp.com/guides/${this.state.id}`, this.state, requestConfig)
           .then(res => {
               console.log(res)
-              this.props.history.push('/guides')
+              this.props.history.push(`/guides/${this.state.id}`)
               this.props.getGuides()
             })
           .catch(err => console.log(err))

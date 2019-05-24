@@ -154,7 +154,7 @@
 }
 
 .newGuideContainer {
-    margin-top: 90px;
+    margin-top: 140px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -184,6 +184,13 @@
         }
     }
 
+    select {
+        font-size: 16px;
+        align-self: center;
+        width: 86%;
+        margin-bottom: 10px;
+    }
+
     textarea {
         font-size: 16px;
         align-self: center;
@@ -203,6 +210,7 @@
         height: 40px;
         width: 85%;
         align-self: center;
+        margin-bottom: 100px;
 
         &:focus {
             outline: none;

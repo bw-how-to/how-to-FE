@@ -142,7 +142,6 @@ class App extends React.Component {
       .post('https://bw-how-to.herokuapp.com/guides', props, requestConfig)
       .then(res => {
         console.log(res)
-        // this.props.history.push('/guides')
         this.getGuides()
       })
       .catch(err => console.log(err))
