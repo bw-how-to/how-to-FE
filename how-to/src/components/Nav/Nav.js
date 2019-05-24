@@ -28,6 +28,10 @@ class Nav extends React.Component {
         this.props.history.push('/guides')
         document.querySelector(".fa-search").classList.toggle('hidden')
         document.querySelector(".searchInput").classList.toggle('hidden')
+        document.querySelectorAll(".fas")[0].style.margin = "0 2px 0 2px";
+        document.querySelectorAll(".fas")[1].style.margin = "0 2px 0 2px";
+        document.querySelectorAll(".fas")[2].style.margin = "0 2px 0 2px";
+        document.querySelectorAll(".fas")[3].style.margin = "0 2px 0 2px";
         document.querySelector(".searchInput").focus();
     }
 

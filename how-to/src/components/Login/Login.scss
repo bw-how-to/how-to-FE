@@ -1,6 +1,7 @@
 .signUpForm {
-    position: absolute;
-    top: 35%;
+    // position: absolute;
+    // top: 35%;
+    margin-top: 280px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -8,6 +9,7 @@
     align-content: center;
     align-items: center;
     width: 80%;
+    // overflow: hidden;
 
     .form {
         width: 75%;

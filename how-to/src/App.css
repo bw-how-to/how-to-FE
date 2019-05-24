@@ -1,8 +1,9 @@
 html {
-  background-color: #60A16D;
+  /* background-color: #60A16D; */
 }
 
 .container {
+  background-color: #60A16D;
   margin: 0 auto;
   display: flex;
 }
@@ -11,7 +12,7 @@ html {
   margin: 0 auto;
   max-width: 800px;
   width: 100%;
-  background-color: #60A16D;
+  /* background-color: #60A16D; */
   text-align: center;
   min-height: 100vh;
   display: flex;
