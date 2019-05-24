@@ -51,6 +51,7 @@
     .fas {
         align-self: center;
         cursor: pointer;
+        margin: 0 15px 0 15px;
 
         &:hover {
             color: rgb(190, 190, 190);
@@ -64,7 +65,7 @@
     i {
         align-self: center;
         font-size: 30px;
-        margin: 0 15px 0 15px;
+        // margin: 0 15px 0 15px;
     }
 
 }
